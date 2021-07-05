@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+          
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <p:dataTable id="tbl" value="#{CDI.states}" var="s" paginator="true" rows="3"
+                         paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                         rowsPerPageTemplate="3,5,10" widgetVar="50" >
+                <f:facet name="header">  
+                    State List  
+                </f:facet>
+            <p:inputText value="#{s.stateID}" type="hidden"/>
+            <p:column  filterBy="#{s.stateName}">
+                    <f:facet name="header">  
+                        <h:outputText value="State Name" />  
+                    </f:facet>
+                <h:outputText value="#{s.stateName}"/>
+                </p:column>
+
+                <p:column>
+                    <h:commandLink value="Delete" action="#{CDI.RemoveState(stateID)}" />
+           
+        </p:column>
+            </p:dataTable>  
+<!--        <p:dataTable id="tbl" value="#{product.products}" var="o" paginator="true" rows="3"
+                         paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                         rowsPerPageTemplate="3,5,10" widgetVar="50" >
+                <f:facet name="header">  
+                    Product List  
+                </f:facet>
+                <p:inputText value="#{o.productID}" type="hidden"/>
+                <p:column  filterBy="#{o.name}">
+                    <f:facet name="header">  
+                        <h:outputText value="Product Name" />  
+                    </f:facet>
+                    <h:outputText value="#{o.name}"/>
+                </p:column>
+                <p:column sortBy="#{o.description}">
+                    <f:facet name="header">  
+                        <h:outputText value="Description" />  
+                    </f:facet>
+                    <h:outputText value="#{o.description}"/>
+                </p:column>
+                <p:column sortBy="#{o.rentpeyday}">
+                    <f:facet name="header">  
+                        <h:outputText value="RentPerDay" />  
+                    </f:facet>
+                    <h:outputText value="#{o.rentpeyday}"/>
+                </p:column>
+                <p:column sortBy="#{o.depositeamount}">
+                    <f:facet name="header">  
+                        <h:outputText value="Depositeamount" />  
+                    </f:facet>
+                    <h:outputText value="#{o.depositeamount}"/>
+                </p:column>
+                <p:column sortBy="#{o.cname}">
+                    <f:facet name="header">  
+                        <h:outputText value="Category Name" />  
+                    </f:facet>
+                    <h:outputText value="#{o.cname}"/>
+                </p:column>
+                <p:column sortBy="#{o.sname}">
+                    <f:facet name="header">  
+                        <h:outputText value="SubCategory Name" />  
+                    </f:facet>
+                    <h:outputText value="#{o.sname}"/>
+                </p:column>
+                <p:column>
+                    <h:commandLink value="Delete" action="#{userBean.delete(o.productID)}" />
+           
+        </p:column>
+            </p:dataTable>-->
+
+    </h:body>
+</html>
+

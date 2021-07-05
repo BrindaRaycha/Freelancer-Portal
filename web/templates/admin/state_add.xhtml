@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>State Add</title>
+    </h:head>
+    <h:body>
+        <div class="layout-wrapper layout-2">
+         <div class="layout-inner">
+            <ui:insert name="side-bar">
+                <ui:include src="side-bar.xhtml"/>
+            </ui:insert>
+            <div class="layout-container">
+                <ui:insert name="header">
+                    <ui:include src="header.xhtml"/>
+                </ui:insert>
+               <div class="layout-content">
+        
+                   
+                 <div class="container-fluid flex-grow-1 container-p-y">
+                    <h4 class="font-weight-bold py-3 mb-0">State Add</h4>
+                    <div class="text-muted small mt-0 mb-4 d-block breadcrumb">
+                        <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.jsf"><i class="feather icon-home"></i></a></li>
+                        <li class="breadcrumb-item active"><a href="state_add.jsf">State Add</a></li>
+                        </ol>
+                    </div>
+                       
+                    <h:form id="Form" styleClass="form-horizontal">        
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <div class="card mb-4">
+                                    <div class="card-body demo-vertical-spacing-sm">                                        
+                                        <div class="select2-primary">
+                                            
+                                             
+                                             
+                                            <div class="form-group">
+                                                <h:outputLabel for="name" styleClass="form-label">Enter State :</h:outputLabel>
+                                                <div class="col-sm-4">
+                                                    <h:inputText id="school-name" value="#{CDI.state}" styleClass="form-control" required="true" requiredMessage="State Cannot Be Blank" />
+                                                </div>
+                                                
+                                                <h:message for="school-name" styleClass="text text-danger" />
+                                            </div>  
+                                            <br />
+                                            <br />
+                                            
+                                            <div class="form-group">
+                                                <h:commandButton value="Save" action="#{CDI.AddState(CDI)}" styleClass="btn btn-primary" />
+<!--                                                <div class="col-sm-updated"><h:outputLink value="project_scope.jsf">View Project Scope Record List</h:outputLink></div>-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    </h:form>
+                    
+                    
+                    
+                    
+                 </div>
+                   
+                   
+                   
+                   
+                   
+                   
+                   </div>
+                <ui:insert name="footer">
+                    <ui:include src="footer.xhtml"/>
+                </ui:insert>
+            </div>
+         </div>
+         <div class="layout-overlay layout-sidenav-toggle"></div>
+      </div>
+    </h:body>
+</html>
+

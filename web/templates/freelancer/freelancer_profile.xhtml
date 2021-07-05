@@ -1,0 +1,222 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html" 
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>Profile</title>
+    
+</h:head>
+<h:body class="blue-skin">
+<div id="main-wrapper">
+    <ui:insert name="header" >
+        <ui:include src="freelancer_header.xhtml"/>
+    </ui:insert>
+    <div class="clearfix"></div>
+    <ui:insert name="dash_header" >
+        <ui:include src="freelancer_dashboard_header.xhtml"/>
+    </ui:insert>
+    <section class="gray-bg pt-4">
+    <div class="container-fluid">
+            <div class="row m-0">
+
+            <ui:insert name="sidebar" >
+                <ui:include src="freelancer_dashboard_sidebar.xhtml"/>
+            </ui:insert>	
+
+                    <!-- Item Wrap Start -->
+                    <div class="col-xl-9 col-lg-8 col-md-12 col-sm-12">
+                            <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                            <!-- Breadcrumbs -->
+                                            <div class="bredcrumb_wrap">
+                                                    <nav aria-label="breadcrumb">
+                                                      <ol class="breadcrumb">
+                                                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                                            <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                                                            <li class="breadcrumb-item active" aria-current="page">My Profile</li>
+                                                      </ol>
+                                                    </nav>	
+                                            </div>
+                                    </div>
+                            </div>
+
+                            <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <h:form id="Form" class="row" enctype="multipart/form-data">	
+                                            <!-- Single Wrap -->
+                                            <div class="_dashboard_content">
+                                                    <div class="_dashboard_content_header">
+                                                            <div class="_dashboard__header_flex">
+                                                                    <h4><i class="ti-briefcase mr-1"></i>Profile</h4>	
+                                                            </div>
+                                                    </div>
+
+                                                    <div class="_dashboard_content_body">
+                                                            <div class="row">
+                                                                                         
+                                                                <h:inputHidden id="fid" value="#{CDI.freelancerID}" class="form-control with-light"/>
+                                                                <h:inputHidden id="pass" value="#{CDI.freelancerPassword}" class="form-control with-light"/>
+                                                                    <div class="col-xl-6 col-lg-6">
+                                                                            <div class="form-group">
+                                                                                    <label>e-Mail</label>
+                                                                                    <h:inputText id="freeEmail" value="#{CDI.email}" class="form-control with-light" required="true" requiredMessage="Title can;t be blank"/>
+                                                                            </div>
+                                                                    </div>
+
+                                                               
+                                                                <div class="col-xl-4 col-lg-6">
+                                                                            <div class="form-group">
+                                                                                <label>Profile :</label> <span></span>
+                                                                                <h:graphicImage height="100" width="100" library="images" name="#{CDI.freelancerLogo}" class="img-fluid circle"/>
+                                                                                   
+                                                                            </div>
+                                                                    </div>
+                                                                 <div class="col-xl-4 col-lg-6">
+                                                                            <div class="form-group">
+                                                                                    <label>College</label>
+                                                                                    <h:inputText id="freeCollege" value="#{CDI.college}" class="form-control with-light" required="true" requiredMessage="Title can;t be blank"/>
+                                                                            </div>
+                                                                    </div>
+                                                                <div class="col-xl-4 col-lg-6">
+                                                                            <div class="form-group">
+                                                                                    <label>Weekly Available</label>
+                                                                                    <h:inputText id="freeWeekly" value="#{CDI.weeklyAvailable}" class="form-control with-light" required="true" requiredMessage="Title can;t be blank"/>
+                                                                            </div>
+                                                                    </div>
+                                                                <div class="col-xl-4 col-lg-6">
+                                                                            <div class="form-group">
+                                                                                    <label>State</label>
+                                                                                     <h:selectOneMenu class="form-control with-light" id="selectState" value="#{CDI.stateID}" required="true" requiredMessage="Select Any State...!!!">
+                                            
+                                                                                        <f:selectItem itemLabel="--select state--" itemValue="" noSelectionOption="true"/>
+                                                                                        <f:selectItems noSelectionValue="true" value="#{CDI.states}" var="s" itemValue="#{s.stateID}" itemLabel="#{s.stateName}" />
+                                                                                        <f:ajax event="change" listener="#{CDI.onStateChange(CDI.stateID)}" execute="selectState"  render="selectCity"/>
+                                                                                     </h:selectOneMenu>
+                                                                                    <!--<f:ajax listener="{CDI.onStateChange()}" update="selectCity" />-->
+                                                                                        <!--<f:ajax update="selectCity" />-->
+                                                                                        <!--<p:ajax rendered="selectCity"/>-->
+                                                                                    <h:message for="selectState" styleClass="text text-danger" />
+                                                                            </div>
+                                                                    </div>
+                                                                <div class="col-xl-4 col-lg-6">
+                                                                            <div class="form-group">
+                                                                                    <label>City</label>
+                                                                                    <h:selectOneMenu class="form-control with-light" id="selectCity" value="#{CDI.cityID}">
+                                                                                        <f:selectItem itemLabel="--select city--" itemValue=""  />
+                                                                                        <f:selectItems value="#{CDI.onStateChange(CDI.stateID)}" var="c" itemValue="#{c.cityID}" itemLabel="#{c.cityName}" noSelectionValue="true"/>
+                                                                                    </h:selectOneMenu>
+                                                                            </div>
+                                                                    </div>
+
+                                                                    <div class="col-xl-4 col-lg-6">
+                                                                            <div class="form-group">
+                                                                                    <label>Category</label>
+                                                                                    <h:selectOneMenu class="form-control with-light" id="selectCategory" value="#{CDI.categoryID}" required="true" requiredMessage="Select Any Category...!!!">
+
+                                                                                        <f:selectItem itemLabel="--select Category--" itemValue="" />
+                                                                                        <f:selectItems value="#{CDI.categories}" var="s" itemValue="#{s.categoryID}" itemLabel="#{s.categoryName}" />
+                                                                                        <!--<f:ajax event="change" listener="#{CDI.onStateChange(CDI.stateID)}" render="selectCity"/>-->
+                                                                                     </h:selectOneMenu>
+
+                                                                                    <h:message for="selectCategory" styleClass="text text-danger" />
+                                                                            </div>
+                                                                    </div>
+
+                                                                    <div class="col-xl-4 col-lg-6">
+                                                                        <div class="form-group">
+                                                                            <label>Degree</label>
+                                                                            <h:selectOneMenu class="form-control with-light" id="selectDegree" value="#{CDI.degreeID}" required="true" requiredMessage="Select Any Category...!!!">
+
+                                                                                <f:selectItem itemLabel="--select Degree--" itemValue="" noSelectionOption="true"/>
+                                                                                <f:selectItems value="#{CDI.degrees}" var="s" itemValue="#{s.degreeID}" itemLabel="#{s.degree}" />
+                                                                                <!--<f:ajax event="change" listener="#{CDI.onStateChange(CDI.stateID)}" render="selectCity"/>-->
+                                                                             </h:selectOneMenu>
+
+                                                                            <h:message for="selectDegree" styleClass="text text-danger" />
+                                                                        </div>
+
+                                                                    </div>
+                                                                    <div class="col-lg-4 col-md-12">
+                                                                        <div class="form-group">
+                                                                            <label>Expertize Level</label>
+                                                                            <h:selectOneMenu class="form-control with-light" id="selectExper" value="#{CDI.expertizeLevelID}" required="true" requiredMessage="Select Any Category...!!!">
+
+                                                                                <f:selectItem itemLabel="--select Expertize--" itemValue="" noSelectionOption="true"/>
+                                                                                <f:selectItems value="#{CDI.expertizelevels}" var="s" itemValue="#{s.expertizeLevelID}" itemLabel="#{s.levels}" />
+
+                                                                             </h:selectOneMenu>
+
+                                                                            <h:message for="selectExper" styleClass="text text-danger" />
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-lg-4 col-md-12">
+                                                                    <div class="form-group">
+                                                                        <label>English Level</label>
+                                                                        <h:selectOneMenu class="form-control with-light" id="selectEnglish" value="#{CDI.englishLevelID}" required="true" requiredMessage="Select Any Category...!!!">
+
+                                                                            <f:selectItem itemLabel="--select English--" itemValue="" noSelectionOption="true"/>
+                                                                            <f:selectItems value="#{CDI.englishlevels}" var="s" itemValue="#{s.englishLevelID}" itemLabel="#{s.englishLevels}" />
+
+                                                                         </h:selectOneMenu>
+
+                                                                        <h:message for="selectEnglish" styleClass="text text-danger" />
+                                                                    </div>
+                                                                </div> 
+                                                                <div class="col-lg-4 col-md-12">
+                                                                    <div class="form-group">
+                                                                        <label>Hourly Rate</label>
+                                                                        <h:selectOneMenu class="form-control with-light" id="selectHour" value="#{CDI.hourlyRateID}" required="true" requiredMessage="Select Any Category...!!!">
+
+                                                                            <f:selectItem itemLabel="--select HourlyRate--" itemValue="" noSelectionOption="true"/>
+                                                                            <f:selectItems value="#{CDI.hourlyRates}" var="s" itemValue="#{s.hourlyRateID}" itemLabel="#{s.rate}" />
+
+                                                                         </h:selectOneMenu>
+
+                                                                        <h:message for="selectHour" styleClass="text text-danger" />
+                                                                    </div>
+                                                                </div> 
+                                                                <div class="col-lg-12 col-md-12">
+                                                                    <div class="form-group">
+                                                                        <label>About Your Self</label>
+                                                                        <h:inputTextarea id="self" value="#{CDI.aboutSelf}" styleClass="form-control with-light" required="true" requiredMessage="Please Enter Something YourSelf" />
+                                                                        <h:message for="self" styleClass="text text-danger" />
+                                                                    </div>
+                                                                </div>
+                                                                    <div class="col-lg-12 col-md-12">
+                                                                    <div class="form-group">
+                                                                        <div class="custom-file">
+                                                                            <h:outputLabel value="Upload file" class="custom-file-label" for="upfile"></h:outputLabel>
+                                                                            <h:inputFile value="#{CDI.uploadedFile}" class="custom-file-input" id="upfile"  />
+
+                                                                            <!--                                            <input type="file" class="custom-file-input" id="upfile" />
+                                                                            <label class="custom-file-label" for="upfile">Upload file</label>-->
+                                                                        </div>
+                                                                        <h:message for="upfile" styleClass="text text-danger" />
+                                                                    </div>
+                                                                </div>    
+
+
+                                                            </div>
+                                                    </div>
+                                            </div>
+                                            <!-- Single Wrap End -->
+
+                                            <h:commandButton class="btn btn-dark " value="Save changes" action="#{CDI.EditFreelancer(CDI)}" />
+                                    </h:form>	
+                                    </div>
+                            </div>
+
+                    </div>
+
+            </div>
+    </div>
+</section>
+	<ui:insert name="footer" >
+                           <ui:include src="freelancer_footer.xhtml"/>
+                        </ui:insert> 	
+</div>  
+    </h:body>
+</html>
+

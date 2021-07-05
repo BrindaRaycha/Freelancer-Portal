@@ -1,0 +1,209 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Active Freelancer</title>
+    </h:head>
+    <h:body>
+        <div class="layout-wrapper layout-2">
+        <div class="layout-inner">
+            <!-- [ Layout sidenav ] Start -->
+            <ui:insert name="side-bar">
+                <ui:include src="side-bar.xhtml"/>
+            </ui:insert>
+            <!-- [ Layout sidenav ] End -->
+            <!-- [ Layout container ] Start -->
+            <div class="layout-container">
+                <!-- [ Layout navbar ( Header ) ] Start -->
+                <ui:insert name="header">
+                    <ui:include src="header.xhtml"/>
+                </ui:insert>
+                <!-- [ Layout navbar ( Header ) ] End -->
+                <!-- [ Layout content ] Start -->
+                <div class="layout-content">
+                    
+                    
+                    <!-- [ content ] Start -->
+                    <div class="container-fluid flex-grow-1 container-p-y">
+                        <h4 class="font-weight-bold py-3 mb-0">Freelancer</h4>
+                        <div class="text-muted small mt-0 mb-4 d-block breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index.jsf"><i class="feather icon-home"></i></a></li>
+                                <li class="breadcrumb-item"><a href="freelancer_list.jsf">Freelancer List</a></li>
+                            </ol>
+                        </div>
+                        <div class="row">
+                            <!-- customar project  start -->
+                            <div class="col-xl-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h:form>
+                                        <div class="row align-items-center m-l-0">
+                                            <div class="col-sm-6">
+                                            </div>
+                                            <div class="col-sm-6 text-right">
+<!--                                                <button class="btn btn-success btn-sm mb-3 btn-round" data-toggle="modal" data-target="#modal-report">
+                                                    
+                                                    <i class="feather icon-plus"></i> ADD</button>-->
+                                                    
+                                            
+                                            <!--<h:commandLink  action="category_add.jsf?faces-redirect=true" value="ADD" class="btn btn-success btn-sm mb-3 btn-round"><i class="feather icon-plus"></i></h:commandLink>-->
+                                            </div>
+                                        </div>
+                                        <div class="table-responsive">
+                                            <h:dataTable id="report-table" class="table mb-0" value="#{CDI.activefree}" var="f">
+<!--                                                <h:column>
+                                                    <f:facet name="header">
+                                                        <h:outputText value="ID"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{f.freelancerID}"/>
+                                                </h:column>-->
+                                                <h:column>
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Profile"/>
+                                                    </f:facet>
+                                                    <h:graphicImage library="images" class="rounded mr-3" width="50" height="40" name="#{f.profileImage}"/>
+                                                </h:column>
+                                                <h:column>
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Email"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{f.email}"/>
+                                                </h:column>
+                                                
+                                                <h:column>
+                                                    <f:facet name="header">
+                                                        <h:outputText value="College"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{f.college}"/>
+                                                </h:column>
+                                                
+<!--                                                <h:column>
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Degree"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{f.degreeID.degree}"/>
+                                                </h:column>-->
+                                                
+<!--                                                <h:column>
+                                                    <f:facet name="header">
+                                                        <h:outputText value="About Self"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{f.aboutSelf}"/>
+                                                </h:column>
+                                                
+                                                <h:column>
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Category"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{f.categoryID.categoryName}"/>
+                                                </h:column>
+                                                
+                                                <h:column>
+                                                    <f:facet name="header">
+                                                        <h:outputText value="English Level"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{f.englishLevelID.englishLevels}"/>
+                                                </h:column> 
+                                                
+                                                <h:column>
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Expertize Level"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{f.expertizeLevelID.levels}"/>
+                                                </h:column> 
+                                                
+                                                <h:column>
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Hourly Rate"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{f.hourlyRateID.rate}"/>
+                                                </h:column>   
+                                                -->
+                                                <h:column>
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Weekly Available"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{f.weeklyAvailable}"/>
+                                                </h:column> 
+                                                
+<!--                                                <h:column>
+                                                    <f:facet name="header">
+                                                        <h:outputText value="State"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{f.stateID.stateName}"/>
+                                                </h:column>  
+                                                
+                                                <h:column>
+                                                    <f:facet name="header">
+                                                        <h:outputText value="City"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{f.cityID.cityName}"/>
+                                                </h:column>  -->
+                                                
+                                                
+                                                 <h:column>
+                                                    <f:facet name="header">
+                                                             <h:outputText value="Options"/>
+                                                    </f:facet>
+                                                     
+<!--                                                     <p:commandButton icon="fa fa-pencil" update=":form:bookEdit" oncomplete="PF('editDialog').show()">
+                                                         <f:setPropertyActionListener value="#{f}" target="#{CDI.selectedfreelancer}"/>
+                                                        </p:commandButton>-->
+                                                         <h:commandLink action="#{CDI.ViewFreelancerProfile()}" value="View" styleClass="btn btn-secondary btn-sm">
+                                                             <i class="feather icon-eye"></i>
+                                                             <f:setPropertyActionListener value="#{f}" target="#{CDI.selectedfreelancer}"/>
+                                                             <f:param name="selectedId" value="#{f.freelancerID}" />
+                                                         </h:commandLink>
+
+                                                        &nbsp;&nbsp;
+                                                        
+                                                        <!--<h1>#{f.isActive}</h1>-->
+                                                        <!--<c:if test="#{f.isActive != 0}">-->
+                                                           <h:commandLink action="#{CDI.ChangeStatusFreelancer(f.freelancerID,0)}" value="Block" styleClass="btn btn-danger btn-sm">
+                                                            <i class="feather icon-bell-off"></i>
+                                                            </h:commandLink>
+                                                        <!--</c:if>-->
+                                                        <!--<c:if test="#{f.isActive != 1}">-->
+<!--                                                           <h:commandLink action="#{CDI.ChangeStatusFreelancer(f.freelancerID,1)}" value="Active" styleClass="btn btn-success btn-sm">
+                                                         <i class="feather icon-bell"></i>
+                                                         </h:commandLink>-->
+                                                        <!--</c:if>-->
+                                                        
+    <!--                                                <a href="#!" class="btn btn-info btn-sm"><i class="feather icon-edit"></i>&nbsp;Edit </a>
+                                                                <a href="#!" class="btn btn-danger btn-sm"><i class="feather icon-trash-2"></i>&nbsp;Delete </a>-->
+                                                </h:column>
+                                            </h:dataTable>
+                                          
+                                                    
+                                                    
+                                        </div>
+                                            </h:form>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- customar project  end -->
+                        </div>
+                    </div>
+                    <!-- [ content ] End -->
+                    <!-- [ Layout footer ] Start -->
+                     <ui:insert name="footer">
+                    <ui:include src="footer.xhtml"/>
+                </ui:insert>
+                    <!-- [ Layout footer ] End -->
+                </div>
+                <!-- [ Layout content ] Start -->
+            </div>
+            <!-- [ Layout container ] End -->
+        </div>
+        <!-- Overlay -->
+        <div class="layout-overlay layout-sidenav-toggle"></div>
+    </div>
+    </h:body>
+</html>
+

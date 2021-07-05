@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <label>State</label>
+            <h:selectOneMenu class="form-control with-light" id="selectState" value="#{CDI.stateID}" required="true" requiredMessage="Select Any State...!!!">
+                <!--<f:ajax execute="selectState" render="selectCity"/>-->
+                <f:selectItem itemLabel="--select state--" itemValue="" noSelectionOption="true"/>
+                <f:selectItems value="#{CDI.states}" var="s" itemValue="#{s.stateID}" itemLabel="#{s.stateName}" />
+                <!--<f:ajax execute="selectState" render="selectCity"/>-->
+                <f:ajax event="change" listener="#{CDI.onStateChange(CDI.stateID)}" render="selectCity"/>
+             </h:selectOneMenu>
+            <br/><br/>
+            <!--<h4><h:outputText id="selectCity" value="#{CDI.onStateChange(CDI.stateID)}"/></h4>-->
+            <label>City</label>
+            <h:selectOneMenu class="form-control with-light" id="selectCity" value="#{CDI.cityID}" required="true" requiredMessage="Select Any State...!!!">
+<!--                <f:ajax event="change" listener="#{CDI.onStateChange(CDI.stateID)}"/>-->
+                <f:selectItem itemLabel="--select city--" itemValue="" noSelectionOption="true"/>
+                <f:selectItems value="#{CDI.onStateChange(CDI.stateID)}" var="c" itemValue="#{c.cityID}" itemLabel="#{c.cityName}" />
+            </h:selectOneMenu>
+<!--           <h:selectOneMenu id="select_role" value="#{showUserBean.select_role}">
+                
+                <f:selectItem itemValue="" itemLabel="Select Global Role"  />
+                
+                <f:selectItems value="#{showUserBean.globalRoleses}"
+                               var="data" itemLabel="#{data.role}" itemValue="#{data.id}"/>
+                
+                <f:ajax event="change" listener="#{showUserBean.getVal(showUserBean.select_role)}"/>
+            </h:selectOneMenu>-->
+           <h:commandLink action="#{CDI.fetchid()}" value="Edit" styleClass="btn btn-info btn-sm">
+                <i class="feather icon-edit"></i>
+                <!--<f:param name="selectedId" value="#{s.stateID}" />-->
+                <!--<f:setPropertyActionListener value="#{CDI.GetCompanyData()}" target="#{CDI.selectedState}"/>-->
+            </h:commandLink>
+        </h:form>
+         
+    </h:body>
+</html>
+

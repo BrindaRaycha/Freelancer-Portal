@@ -1,0 +1,202 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      >
+<h:head>
+    <title>Workpost Details</title>
+    <h:outputStylesheet library="css" name="plugins.css"/>
+<h:outputStylesheet library="css" name="styles.css"/>
+
+<h:outputScript library="js" name="jquery.min.js"/>
+<h:outputScript library="js" name="popper.min.js"/>
+<h:outputScript library="js" name="bootstrap.min.js"/>
+<h:outputScript library="js" name="select2.min.js"/>
+<h:outputScript library="js" name="owl.carousel.min.js"/>
+<h:outputScript library="js" name="ion.rangeSlider.min.js"/>
+<h:outputScript library="js" name="counterup.min.js"/>
+<h:outputScript library="js" name="materialize.min.js"/>
+<h:outputScript library="js" name="metisMenu.min.js"/>
+<h:outputScript library="js" name="custom.js"/>
+</h:head>
+<h:body class="blue-skin">
+<div id="main-wrapper">
+<ui:insert name="header" >
+    <ui:include src="freelancer_header.xhtml"/>
+</ui:insert>
+<!-- ============================ Page Title Start================================== -->
+<ui:insert name="sidebar" >
+    <ui:include src="freelancer_dashboard_header.xhtml"/>
+</ui:insert>	
+<!-- ============================ Page Title End ================================== -->
+<section class="gray-bg">
+    <div class="container">
+        <h:form>   
+        <div class="row">
+            <!-- Item Wrap Start -->
+            <div class="col-lg-8 col-md-12 col-sm-12">
+                
+                <div class="_job_detail_box">
+                    <div class="_wrap_box_slice">
+                        <div class="_job_detail_single">
+                            <h:inputHidden value="#{CDI.id}"></h:inputHidden>
+                            <h4>Work Title</h4>
+                            <p>#{CDI.selectedWorkPost.workTitle}</p>
+                        </div>
+                        <div class="_job_detail_single">
+                            <h4>Category</h4>
+                            <p>#{CDI.selectedWorkPost.categoryID.categoryName}</p>
+                        </div>
+                        <div class="_job_detail_single">
+                            <h4>Description</h4>
+                            <p>#{CDI.selectedWorkPost.workDescription}</p>
+                        </div>
+                        <div class="_job_detail_single">
+                            <h4>Project Scope</h4>
+                            <p>#{CDI.selectedWorkPost.projectScopeID.scope}</p>
+                        </div>
+                        <div class="_job_detail_single">
+                            <h4>English Level</h4>
+                            <p>#{CDI.selectedWorkPost.englishLevelID.englishLevels}</p>
+                        </div>
+                        <div class="_job_detail_single">
+                            <h4>Expertise Level</h4>
+                            <p>#{CDI.selectedWorkPost.expertizeLevelID.levels}</p>
+                        </div>
+                        
+                        
+                        <div class="_job_detail_single">
+                            <h4>Skill Required</h4>
+                            <ul class="skilss">
+                                <ui:repeat value="#{CDI.workskills}" var="s">
+                                    <li><a href="javascript:void(0);">#{s.skills}</a></li>
+                                </ui:repeat>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="_wrap_box_slice">
+                        <div class="_job_detail_single">
+                                <h4>Currently working freelancers</h4>
+                                
+
+                                    <!-- Single Item -->
+                                    
+                                    <ui:repeat value="#{CDI.ongoingfreelancer}" var="w">
+                                    <h:form>   
+                                        <div class="row justify-content-center">
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                            <div class="job_grid_02 shadow_0 border">
+                                                    <div class="jb_grid_01_thumb">
+                                                        <span class="img">
+                                                        <h:graphicImage library="images" name="#{w.profileImage}" class="img-fluid" />
+                                                        </span>
+                                                    </div>
+                                                <div>.</div>
+                                                    <div class="jb_grid_01_caption">
+                                                        <span class="qa-time">#{CDI.selectedWorkPost.categoryID.categoryName}</span>
+                                                        <h4 class="_jb_title"><a href="">#{w.email}</a></h4>
+                                                        <div class="_emp_jb">#{CDI.selectedWorkPost.companyID.companyName}</div>
+                                                        
+<!--                                                        <h:commandLink action="#{CDI.ViewCompanyDetails()}" value="View" styleClass="_jb_apply">
+                                                            <i class="feather icon-eye"></i>
+                                                            <f:setPropertyActionListener value="#{c}" target="#{CDI.selectedWorkPost.companyID}"/>
+                                                            <f:param name="selectedId" value="#{c.companyID}" />
+                                                        </h:commandLink>-->
+                                                    </div>
+                                            </div>
+                                    </div>
+                                        </div>
+                                    </h:form>
+                                    </ui:repeat>
+                                
+                        </div>
+                    </div>
+                    
+                    <div class="_wrap_box_slice">
+                        <div class="_job_detail_single">
+                                <h4>Previous worked with</h4>
+                                <ui:repeat value="#{CDI.completedworkfreelancer}" var="w">
+                                    <h:form>   
+                                        <div class="row justify-content-center">
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                            <div class="job_grid_02 shadow_0 border">
+                                                    <div class="jb_grid_01_thumb">
+                                                        <span class="img">
+                                                        <h:graphicImage library="images" name="#{w.profileImage}" class="img-fluid circle" />
+                                                        </span>
+                                                    </div>
+                                                <div>.</div>
+                                                    <div class="jb_grid_01_caption">
+                                                        <span class="qa-time">#{CDI.selectedWorkPost.categoryID.categoryName}</span>
+                                                        <h4 class="_jb_title"><a href="">#{w.email}</a></h4>
+                                                        <div class="_emp_jb">#{CDI.selectedWorkPost.companyID.companyName}</div>
+<!--                                                        <h:commandLink action="#{CDI.ViewCompanyDetails()}" value="View" styleClass="_jb_apply">
+                                                            <i class="feather icon-eye"></i>
+                                                            <f:setPropertyActionListener value="#{c}" target="#{CDI.selectedWorkPost.companyID}"/>
+                                                            <f:param name="selectedId" value="#{c.companyID}" />
+                                                        </h:commandLink>-->
+                                                    </div>
+                                            </div>
+                                    </div>
+                                        </div>
+                                    </h:form>
+                                    </ui:repeat>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-12 col-sm-12">
+                <div class="_jb_summary light_box">
+                    
+                    <div class="_jb_summary_largethumb">
+                        <span>Rs.#{CDI.selectedWorkPost.hourlyRateID.rate} Per Hour</span>
+                            <h:graphicImage library="img" class="img-fluid" name="avater.jpg" />
+                            
+                    </div>
+                    
+                    <div class="_jb_summary_thumb">
+                        <h:graphicImage library="images" class="img-fluid circle" name="#{CDI.selectedWorkPost.companyID.companyLogo}"/>
+                    </div>
+                    <div class="_jb_summary_caption">
+                        <h4>#{CDI.selectedWorkPost.companyID.companyName}</h4>
+                       
+                        <span>#{CDI.selectedWorkPost.workPostDate}</span>
+                    </div>
+                    <div class="_jb_summary_body">
+				 <div class="form-group">
+                                    <h:outputText value="Add Bidding Rate" />
+                                    <h:inputText id="brate" value="#{CDI.biddingRate}" label="Add" styleClass="form-control"/>
+                                    </div>					
+                            <div class="_view_profile_btns">
+                                <h:commandLink value="Apply" action="#{CDI.AddApplyTableTB(CDI)}" class="btn btn_emplo_eloi">
+                                    
+                                </h:commandLink>
+                                    <!--<a href="employer-detail.html" class="btn btn_emplo_eloi">View Profile</a>-->
+                            </div>
+                    </div>
+                </div>
+            <div class="_jb_summary light_box p-4">
+                <h4>Company Info</h4>
+                <ul>
+                    <li>Contact no:<span>#{CDI.selectedWorkPost.companyID.contactNumber}</span></li>
+                    <li>E-mail<span>#{CDI.selectedWorkPost.companyID.companyEmail}</span></li>
+                    <li>Location:<span>#{CDI.selectedWorkPost.companyID.cityID.cityName},#{CDI.selectedWorkPost.companyID.stateID.stateName}</span></li>
+                </ul>
+            </div>
+            
+        </div>
+    </div>
+        </h:form>
+    </div>
+</section>  
+    
+    
+</div>
+
+    
+        
+</h:body>
+</html>
+

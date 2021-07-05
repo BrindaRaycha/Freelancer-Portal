@@ -1,0 +1,126 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html" 
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>Ongoing Project</title>
+    
+</h:head>
+<h:body class="blue-skin">
+<div id="main-wrapper">
+    <ui:insert name="header" >
+        <ui:include src="freelancer_header.xhtml"/>
+    </ui:insert>
+    <div class="clearfix"></div>
+    <ui:insert name="sidebar" >
+        <ui:include src="freelancer_dashboard_header.xhtml"/>
+    </ui:insert>
+    <section class="gray-bg pt-4">
+				<div class="container-fluid">
+					<div class="row m-0">
+						
+					<ui:insert name="sidebar" >
+                                            <ui:include src="freelancer_dashboard_sidebar.xhtml"/>
+                                        </ui:insert>	
+						
+						<!-- Item Wrap Start -->
+						<div class="col-xl-9 col-lg-8 col-md-12 col-sm-12">
+							<div class="row">
+								<div class="col-lg-12 col-md-12 col-sm-12">
+									<!-- Breadcrumbs -->
+									<div class="bredcrumb_wrap">
+										<nav aria-label="breadcrumb">
+										  <ol class="breadcrumb">
+											<li class="breadcrumb-item"><a href="index.jsf">Home</a></li>
+                                                                                        <li class="breadcrumb-item"><a href="freelancer_dashboard.jsf">Dashboard</a></li>
+											<li class="breadcrumb-item active" aria-current="page">Ongoing Project </li>
+										  </ol>
+										</nav>	
+									</div>
+								</div>
+							</div>
+							
+							<div class="row">
+                                                    
+                                                        <div class="col-md-12 col-lg-12">
+                                                            <h:form>
+                                                                <ui:repeat value="#{CDI.ongoingbyfid}" var="w">
+                                                                <!-- Single List Item -->
+                                                                <div class="_large_jb_list72 shadow-0">
+                                                                        <div class="_large_jb_header">
+                                                                                <div class="_list_110">
+                                                                                        <div class="_list_110_thumb">
+                                                                                            <h:graphicImage library="images" name="#{w.companyID.companyLogo}" class="img-fluid"/>
+                                                                                                <!--<a href="employer-detail.html"><img src="assets/img/c-1.png" class="img-fluid" alt=""/></a>-->
+                                                                                        </div>
+                                                                                        <div class="_list_110_caption">
+                                                                                            <h4 class="_jb_title"><a href="job-detail.html">#{w.categoryID.categoryName}</a></h4>
+                                                                                            <div class="_emp_jb">#{w.companyID.companyName}</div>
+                                                                                        </div>
+                                                                                </div>
+                                                                                <div class="_list_right-info">
+                                                                                        <ul>
+                                                                                            <li><div class="_ljb_prices"><h5>#{w.hourlyRateID.rate}</h5><span>Hourly</span></div></li>
+                                                                                                <li>
+                                                                                                   
+                                                                                                    
+                                                                                                   
+                                                                                                </li>
+                                                                                        </ul>
+                                                                                </div>
+                                                                        </div>
+                                                                        <div class="_large_jb_body">
+                                                                                <div class="_large_jb_body_list_info">
+                                                                                        <ul>
+                                                                                                <li><i class="ti-desktop"></i>Part time</li>
+                                                                                               
+                                                                                                <li><i class="ti-location-pin"></i>#{w.companyID.stateID.stateName}, #{w.companyID.cityID.cityName}</li>
+                                                                                                <li><i class="ti-user"></i>#{w.companyID.companyOwnerName}</li>
+                                                                                        </ul>
+                                                                                </div>
+                                                                                <div class="_large_jb_body_list_explain">
+                                                                                    <p>#{w.workDescription}</p>
+                                                                                    
+                                                                                        <div class="jb_req_skill">
+                                                                                                <ul>
+                                                                                                    
+<!--                                                                                                        <li><span>Bootstrap</span></li>
+                                                                                                        <li><span>Photoshop</span></li>
+                                                                                                        <li><span>CoralDraw</span></li>
+                                                                                                        <li><span>Graphics</span></li>-->
+                                                                                                </ul>
+                                                                                        </div>
+                                                                                </div>
+                                                                        </div>
+                                                                </div>
+
+                                                                <!-- Single List Item -->
+                                                                </ui:repeat>
+
+                                                                <!-- Single List Item -->
+                                                                
+
+                                                                <!-- Single List Item -->
+                                                                
+
+                                                                <!-- Single List Item -->
+                                                                
+                                                                </h:form>
+                                                        </div>
+                                                        
+                                                </div>
+							
+						</div>
+						
+					</div>
+				</div>
+			</section>
+		<ui:insert name="footer" >
+                    <ui:include src="freelancer_footer.xhtml"/>
+                </ui:insert>
+</div>  
+    </h:body>
+</html>
+

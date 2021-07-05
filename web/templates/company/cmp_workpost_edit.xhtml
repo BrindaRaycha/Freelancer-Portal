@@ -1,0 +1,177 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html" 
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>Work post Edit</title>
+    <h:outputStylesheet library="css" name="plugins.css"/>
+    <h:outputStylesheet library="css" name="styles.css"/>
+
+    <h:outputScript library="js" name="jquery.min.js"/>
+    <h:outputScript library="js" name="popper.min.js"/>
+    <h:outputScript library="js" name="bootstrap.min.js"/>
+    <h:outputScript library="js" name="select2.min.js"/>
+    <h:outputScript library="js" name="owl.carousel.min.js"/>
+    <h:outputScript library="js" name="ion.rangeSlider.min.js"/>
+    <h:outputScript library="js" name="counterup.min.js"/>
+    <h:outputScript library="js" name="materialize.min.js"/>
+    <h:outputScript library="js" name="metisMenu.min.js"/>
+    <h:outputScript library="js" name="custom.js"/>
+</h:head>
+<h:body class="blue-skin">
+<div id="main-wrapper">
+    <ui:insert name="header" >
+        <ui:include src="header.xhtml"/>
+    </ui:insert>
+    <div class="clearfix"></div>
+    <ui:insert name="sidebar" >
+        <ui:include src="cmp_header.xhtml"/>
+    </ui:insert>
+    <section class="gray-bg pt-4">
+				<div class="container-fluid">
+					<div class="row m-0">
+						
+					<ui:insert name="sidebar" >
+                                            <ui:include src="cmp_sidebar.xhtml"/>
+                                        </ui:insert>	
+						
+						<!-- Item Wrap Start -->
+						<div class="col-xl-9 col-lg-8 col-md-12 col-sm-12">
+							<div class="row">
+								<div class="col-lg-12 col-md-12 col-sm-12">
+									<!-- Breadcrumbs -->
+									<div class="bredcrumb_wrap">
+										<nav aria-label="breadcrumb">
+										  <ol class="breadcrumb">
+											<li class="breadcrumb-item"><a href="#">Home</a></li>
+											<li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+											<li class="breadcrumb-item active" aria-current="page">Post Work Edit</li>
+										  </ol>
+										</nav>	
+									</div>
+								</div>
+							</div>
+							
+							<div class="row">
+								<div class="col-lg-12 col-md-12 col-sm-12">
+								<h:form id="Form" class="row">	
+									<!-- Single Wrap -->
+									<div class="_dashboard_content">
+										<div class="_dashboard_content_header">
+											<div class="_dashboard__header_flex">
+												<h4><i class="ti-briefcase mr-1"></i>Edit Work Form</h4>	
+											</div>
+										</div>
+										
+										<div class="_dashboard_content_body">
+											<div class="row">
+                                                                                            <div class="col-xl-4 col-lg-6">
+													<div class="form-group">
+														<label>ID</label>
+                                                                                                                <h:inputText value="#{CDI.id}" readonly="true" class="form-control" />
+                                                                                                        </div>
+                                                                                            </div>
+                                                                                             <div class="col-xl-4 col-lg-6">
+													<div class="form-group">
+														<label>ID</label>
+                                                                                                                <h:inputText value="#{CDI.GetLoginID().userID}"  class="form-control" />
+                                                                                                        </div>
+                                                                                            </div>
+												<div class="col-xl-4 col-lg-6">
+													<div class="form-group">
+														<label>Work Title</label>
+                                                                                                                <h:inputText id="WorkTitle" value="#{CDI.workTitle}" class="form-control with-light" required="true" requiredMessage="Title can;t be blank"/>
+                                                                                                                
+													</div>
+												</div>
+                                                                                            
+                                                                                            <div class="col-xl-4 col-lg-6">
+													<div class="form-group">
+														<label>Work Date</label>
+                                                                                                                <h:inputText id="WorkTdate" value="#{CDI.workPostDate}" class="form-control with-light" />
+													</div>
+												</div>
+                                                                                            
+												<div class="col-xl-4 col-lg-6">
+													<div class="form-group with-light">
+														<label>Work Category</label>
+                                                                                                                <h:selectOneMenu class="form-control" id="CategoryID" value="#{CDI.categoryID}" required="true" requiredMessage="Select Any Category...!!!">
+                                                                                                                    <f:selectItem itemLabel="--select category--" itemValue="" noSelectionOption="true"/>
+                                                                                                                    <f:selectItems value="#{CDI.categories}" var="s" itemValue="#{s.categoryID}" itemLabel="#{s.categoryName}" />
+                                                                                                                 </h:selectOneMenu>
+													</div>
+												</div>
+												
+												<div class="col-xl-4 col-lg-12">
+													<div class="form-group with-light">
+														<label>Work Type</label>
+                                                                                                                <h:selectOneMenu class="form-control" id="projectScope" value="#{CDI.projectScopeID}" required="true" requiredMessage="Select Any Scope...!!!">
+                                                                                                                    <f:selectItem itemLabel="--select scope--" itemValue="" noSelectionOption="true"/>
+                                                                                                                    <f:selectItems value="#{CDI.projectScopes}" var="s" itemValue="#{s.projectScopeID}" itemLabel="#{s.scope}" />
+                                                                                                                 </h:selectOneMenu>
+													</div>
+												</div>
+												
+												<div class="col-xl-4 col-lg-6">
+													<div class="form-group">
+														<label>Expertize Level</label>
+                                                                                                                <h:selectOneMenu class="form-control" id="expLevel" value="#{CDI.expertizeLevelID}" required="true" requiredMessage="Select Any Scope...!!!">
+                                                                                                                    <f:selectItem itemLabel="--select level--" itemValue="" noSelectionOption="true"/>
+                                                                                                                    <f:selectItems value="#{CDI.expertizelevels}" var="s" itemValue="#{s.expertizeLevelID}" itemLabel="#{s.levels}" />
+                                                                                                                 </h:selectOneMenu>
+													</div>
+												</div>
+												
+												<div class="col-xl-4 col-lg-6">
+													<label>English Level</label>
+													<div class="form-row">
+                                                                                                            <h:selectOneMenu class="form-control" id="englevel" value="#{CDI.englishLevelID}" required="true" requiredMessage="Select Any Scope...!!!">
+                                                                                                                    <f:selectItem itemLabel="--select level--" itemValue="" noSelectionOption="true"/>
+                                                                                                                    <f:selectItems value="#{CDI.englishlevels}" var="s" itemValue="#{s.englishLevelID}" itemLabel="#{s.englishLevels}" />
+                                                                                                                 </h:selectOneMenu>
+													</div>
+												</div>
+												
+												<div class="col-xl-4 col-lg-12">
+													<div class="form-group with-light">
+														<label>Hourly Rate</label>
+                                                                                                                <h:selectOneMenu class="form-control" id="hrRate" value="#{CDI.hourlyRateID}" required="true" requiredMessage="Select Any Scope...!!!">
+                                                                                                                    <f:selectItem itemLabel="--select rate--" itemValue="" noSelectionOption="true"/>
+                                                                                                                    <f:selectItems value="#{CDI.hourlyRates}" var="s" itemValue="#{s.hourlyRateID}" itemLabel="#{s.rate}" />
+                                                                                                                 </h:selectOneMenu>
+													</div>
+												</div>
+												
+												
+												
+												<div class="col-xl-12 col-lg-12">
+													<div class="form-group">
+														<label>Work Description</label>
+                                                                                                                <h:inputTextarea  value="#{CDI.workDescription}" class="form-control with-light" />
+													</div>
+												</div>
+												
+												
+												
+											</div>
+										</div>
+									</div>
+									<!-- Single Wrap End -->
+									
+                                                                        <h:commandButton class="btn btn-dark " value="Upload work" action="#{CDI.updateWorkPost(CDI)}" />
+								</h:form>	
+								</div>
+							</div>
+							
+						</div>
+						
+					</div>
+				</div>
+			</section>
+		
+</div>  
+    </h:body>
+</html>
+

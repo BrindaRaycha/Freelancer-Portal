@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Project Scope</title>
+    </h:head>
+    <h:body>
+        <div class="layout-wrapper layout-2">
+        <div class="layout-inner">
+            <!-- [ Layout sidenav ] Start -->
+            <ui:insert name="side-bar">
+                <ui:include src="side-bar.xhtml"/>
+            </ui:insert>
+            <!-- [ Layout sidenav ] End -->
+            <!-- [ Layout container ] Start -->
+            <div class="layout-container">
+                <!-- [ Layout navbar ( Header ) ] Start -->
+                <ui:insert name="header">
+                    <ui:include src="header.xhtml"/>
+                </ui:insert>
+                <!-- [ Layout navbar ( Header ) ] End -->
+                <!-- [ Layout content ] Start -->
+                <div class="layout-content">
+                    
+                    
+                    <!-- [ content ] Start -->
+                    <div class="container-fluid flex-grow-1 container-p-y">
+                        <h4 class="font-weight-bold py-3 mb-0">Project Scope</h4>
+                        <div class="text-muted small mt-0 mb-4 d-block breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index.jsf"><i class="feather icon-home"></i></a></li>
+                                <li class="breadcrumb-item"><a href="project_scope.jsf">Project Scope List</a></li>
+                            </ol>
+                        </div>
+                        <div class="row">
+                            <!-- customar project  start -->
+                            <div class="col-xl-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h:form>
+                                        <div class="row align-items-center m-l-0">
+                                            <div class="col-sm-6">
+                                            </div>
+                                            <div class="col-sm-6 text-right">
+<!--                                                <button class="btn btn-success btn-sm mb-3 btn-round" data-toggle="modal" data-target="#modal-report">
+                                                    
+                                                    <i class="feather icon-plus"></i> ADD</button>-->
+                                                    
+                                            
+                                            <h:commandLink  action="add_project_scope.jsf?faces-redirect=true" value="ADD" class="btn btn-success btn-sm mb-3 btn-round"><i class="feather icon-plus"></i></h:commandLink>
+                                            </div>
+                                        </div>
+                                        <div class="table-responsive">
+                                            <h:dataTable id="report-table" class="table mb-0" value="#{CDI.projectScopes}" var="p">
+<!--                                                <h:column>
+                                                <f:facet name="header">
+                                                         <h:outputText value="ID"/>
+
+                                                </f:facet>
+                                                <h:outputText value="#{p.projectScopeID}"/>
+                                            </h:column>-->
+                                                <h:column>
+                                                <f:facet name="header">
+                                                         <h:outputText value="Scope"/>
+
+                                                </f:facet>
+                                                <h:outputText value="#{p.scope}"/>
+                                            </h:column>
+                                                 <h:column>
+                                                <f:facet name="header">
+                                                         <h:outputText value="Options"/>
+
+                                                </f:facet>
+                                                     <h:commandLink action="#{CDI.EditProjectScopeByID(p)}" value="Edit" styleClass="btn btn-info btn-sm">
+                                                         <i class="feather icon-edit"></i>
+                                                        <f:param name="selectedId" value="#{p.projectScopeID}" />
+                                                     </h:commandLink>
+                                                     
+                                                    &nbsp;&nbsp;
+                                                     <h:commandLink action="#{CDI.RemoveProjectScope(p.projectScopeID)}" value="Delete" styleClass="btn btn-danger btn-sm">
+                                                     <i class="feather icon-trash-2"></i>
+                                                     </h:commandLink>
+<!--                                                <a href="#!" class="btn btn-info btn-sm"><i class="feather icon-edit"></i>&nbsp;Edit </a>
+                                                            <a href="#!" class="btn btn-danger btn-sm"><i class="feather icon-trash-2"></i>&nbsp;Delete </a>-->
+                                            </h:column>
+                                            </h:dataTable>
+                                          
+                                                    
+                                                    
+                                        </div>
+                                            </h:form>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- customar project  end -->
+                        </div>
+                    </div>
+                    <!-- [ content ] End -->
+                    <!-- [ Layout footer ] Start -->
+                     <ui:insert name="footer">
+                    <ui:include src="footer.xhtml"/>
+                </ui:insert>
+                    <!-- [ Layout footer ] End -->
+                </div>
+                <!-- [ Layout content ] Start -->
+            </div>
+            <!-- [ Layout container ] End -->
+        </div>
+        <!-- Overlay -->
+        <div class="layout-overlay layout-sidenav-toggle"></div>
+    </div>
+   
+    <script>
+        // DataTable start
+        $('#report-table').DataTable();
+        // DataTable end
+    </script>
+    </h:body>
+</html>
+

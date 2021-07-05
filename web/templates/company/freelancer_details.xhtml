@@ -1,0 +1,253 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+       >
+<h:head>
+    <title>Freelancer Details</title>
+    <h:outputStylesheet library="css" name="plugins.css"/>
+<h:outputStylesheet library="css" name="styles.css"/>
+
+<h:outputScript library="js" name="jquery.min.js"/>
+<h:outputScript library="js" name="popper.min.js"/>
+<h:outputScript library="js" name="bootstrap.min.js"/>
+<h:outputScript library="js" name="select2.min.js"/>
+<h:outputScript library="js" name="owl.carousel.min.js"/>
+<h:outputScript library="js" name="ion.rangeSlider.min.js"/>
+<h:outputScript library="js" name="counterup.min.js"/>
+<h:outputScript library="js" name="materialize.min.js"/>
+<h:outputScript library="js" name="metisMenu.min.js"/>
+<h:outputScript library="js" name="custom.js"/>
+</h:head>
+<h:body class="blue-skin">
+<div id="main-wrapper">
+    <ui:insert name="header" >
+        <ui:include src="header.xhtml"/>
+</ui:insert>
+<ui:insert name="header" >
+    <ui:include src="cmp_header.xhtml"/>
+</ui:insert>
+<!-- ============================ Page Title Start================================== -->
+
+<!-- ============================ Page Title End ================================== -->
+<section class="gray-bg">
+    <div class="container">
+        <div class="row">
+            <!-- Item Wrap Start -->
+            <div class="col-lg-8 col-md-12 col-sm-12">
+                <div class="_job_detail_box">
+                    <div class="_wrap_box_slice">
+                        <div class="_job_detail_single">
+                            <h4>About User</h4>
+                            <p>#{CDI.selectedfreelancer.aboutSelf}</p>
+                        </div>
+                        <div class="_job_detail_single">
+                            <h4>Expertise Level</h4>
+                            <p>#{CDI.selectedfreelancer.expertizeLevelID.levels}</p>
+                        </div>
+                        <div class="_job_detail_single">
+                            <h4>English Level</h4>
+                            <p>#{CDI.selectedfreelancer.englishLevelID.englishLevels}</p>
+                        </div>
+                        <div class="_job_detail_single">
+                            <h4>Weekly Available</h4>
+                            <p>#{CDI.selectedfreelancer.weeklyAvailable}</p>
+                        </div>
+                        
+                        <div class="_job_detail_single">
+                            <h4>Skill Experience</h4>
+                            <ul class="skilss">
+                                <ui:repeat value="#{CDI.freeskills}" var="s">
+                                    <li><a href="javascript:void(0);">#{s.skills}</a></li>
+                                </ui:repeat>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="_wrap_box_slice">
+                        <div class="_job_detail_single">
+                            <h4>Education</h4>
+                            <ul class="qa-skill-list">
+                                    <!-- Single List -->
+                                <li>
+                                <div class="qa-skill-box">
+                                    <h4 class="qa-skill-title">#{CDI.selectedfreelancer.degreeID.degree}</h4>
+                                    <h5 class="qa-subtitle">#{CDI.selectedfreelancer.college}</h5>
+                                </div>
+                                </li>
+                                <!-- Single List -->
+                                
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Award & Experience -->
+<!--                    <div class="_wrap_box_slice">
+                        <div class="_job_detail_single">
+                            <h4>Completed Projects</h4>
+                            <ul class="qa-skill-list">
+                                <ui:repeat value="#{CDI.GetWorkCompleted()}" var="a">
+                                <li>
+                                <div class="qa-skill-box">
+                                    <h4 class="qa-skill-title">{}<span class="qa-time">2017 - 2019</span></h4>
+                                    <h5 class="qa-subtitle">Mingoo Infotech</h5>
+                                    <div class="qa-content">
+                                        <p>hh</p>
+                                    </div>
+                                </div>
+                                </li>
+                                </ui:repeat>
+                            </ul>
+                        </div>
+                    </div>-->
+                    <!-- Education & Qualification -->
+                    
+                    <!-- Completed Projects -->
+                    <div class="_wrap_box_slice">
+                        <div class="_job_detail_single">
+                            <h4>Certificates</h4>
+                             <h:form>
+                            <div class="row justify-content-center">
+                               
+                                <ui:repeat value="#{CDI.certificates}" var="c" >
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                        <div class="_file_caption">
+                                                <div class="_file_caption_flex">
+                                                        <div class="_eltio_caption_icon">
+                                                            <h:graphicImage library="img" name="pdf.png" class="img-fluid" />
+                                                                
+                                                        </div>
+                                                        <div class="_eltio_caption_body">
+                                                                <h4>#{c.certificateFile}</h4>
+                                                                <span>File size 25kb</span>
+                                                        </div>
+                                                </div>
+                                                <div class="">
+                                                    <h:commandLink styleClass="btn btn-info btn-sm" value="Download" action="#{CDI.download(c.certificateFile)}">
+                                                       <i class="fa fa-download"></i>
+                                                    </h:commandLink>
+                                                </div>
+                                        </div>
+                                </div>
+                                    </ui:repeat>
+                     
+                                
+                            </div>
+                                 </h:form>
+                        </div>
+                    </div>
+                    <div class="_wrap_box_slice">
+                        <div class="_job_detail_single">
+                            <h4>Post Comments</h4>
+                            
+                    <div class="modal-content" id="resumeupload">
+                            
+                            <div class="modal-body">
+                                
+                                    <div class="login-form">
+                                             
+                                        <h:form>
+                                                    <div class="form-row">
+                                                            <div class="col-lg-6 col-md-12">
+                                                                    <div class="form-group">
+                                                                        <h:inputHidden id="lbluser" value="#{CDI.GetLoginID().userID}"/>
+                                                                        
+                                                                    </div>
+                                                            </div>
+
+                                                            <div class="col-lg-6 col-md-12">
+                                                                    <div class="form-group">
+                                                                        <h:inputHidden id="fid" value="#{CDI.id}"/>
+                                                                    </div>
+                                                            </div>
+                                                    </div>
+                                                    
+                                                    <div class="form-group">
+                                                            <h:outputLabel for="error-review"  value="Enter Review : "/>
+                                                            <h:inputTextarea id="error-review" value="#{CDI.freeReviewMsg}" class="form-control ht-150"  required="true" requiredMessage="Please Enter Review Message!!!"/>
+                                                               
+                                                           
+                                                    
+                                                    </div>
+
+                                                    
+
+                                                    <div class="form-group">
+                                                        <h:commandButton value="Submit" action="#{CDI.AddFreelancerReview(CDI)}" class="btn dark-2 btn-md full-width pop-login"/>
+                                                         
+                                                            
+                                                    </div>
+
+                                          </h:form>
+                                    </div>
+                                   
+                            </div>
+                    </div>
+           
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-12 col-sm-12">
+                
+            <div class="_jb_summary light_box">
+                    <div class="_jb_summary_largethumb">
+                        <span>#{CDI.selectedfreelancer.hourlyRateID.rate}</span>
+                            <h:graphicImage library="img" name="avater.jpg" class="img-fluid" alt=""/>
+                            <!--<img src="assets/img/avater.jpg" class="img-fluid" alt="">-->
+                    </div>
+                    <div class="_jb_summary_thumb">
+                        <h:graphicImage library="images" name="#{CDI.selectedfreelancer.profileImage}" class="img-fluid circle"/>
+                            <!--<img src="assets/img/team-2.jpg" class="img-fluid circle" alt="">-->
+                    </div>
+                    <div class="_jb_summary_caption">
+                        <h4>#{CDI.selectedfreelancer.email}</h4>
+                            <span>#{CDI.selectedfreelancer.categoryID.categoryName}</span>
+                    </div>
+                    <div class="_jb_summary_body">
+                            
+                            <div class="_view_dis_908">
+                                    <ul class="exlio_list">
+                                        <li>OnGoing Project<span class="text-success">#{CDI.GetFreelancerOngoingWork()}</span></li>
+                                            <li>Completed Project<span class="text-warning">#{CDI.GetFreelancerCompletedWork()}</span></li>
+                                            <li>Applied for Project<span class="text-info">#{CDI.GetFreelancerAppliedWork()}</span></li>
+                                    </ul>
+                            </div>
+                        
+                    </div>
+            </div>
+
+            <div class="_jb_summary light_box p-4">
+                    <h4>User Info</h4>
+                    <ul>
+                        <li>Email<span>#{CDI.selectedfreelancer.email}</span></li>
+                        <li>Location<span>#{CDI.selectedfreelancer.cityID.cityName}, #{CDI.selectedfreelancer.stateID.stateName}</span></li>
+                    </ul>
+            </div>
+                
+            <div class="_jb_summary light_box p-4">
+                    <h4>Reviews</h4>
+                    <ui:repeat value="#{CDI.reviewTBs}" var="r" >
+                    <ul>
+                        <li>Company<span>#{r.companyID.companyName}</span></li>
+                        <li>Review<span>#{r.review}</span></li>
+                    </ul>
+                    </ui:repeat>
+            </div>
+
+            
+
+    </div>
+    </div>
+    </div>
+</section>  
+    
+    
+</div>
+
+    
+        
+</h:body>
+</html>
+

@@ -1,0 +1,190 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      >
+<h:head>
+    <title>Company Details</title>
+    <h:outputStylesheet library="css" name="plugins.css"/>
+<h:outputStylesheet library="css" name="styles.css"/>
+
+<h:outputScript library="js" name="jquery.min.js"/>
+<h:outputScript library="js" name="popper.min.js"/>
+<h:outputScript library="js" name="bootstrap.min.js"/>
+<h:outputScript library="js" name="select2.min.js"/>
+<h:outputScript library="js" name="owl.carousel.min.js"/>
+<h:outputScript library="js" name="ion.rangeSlider.min.js"/>
+<h:outputScript library="js" name="counterup.min.js"/>
+<h:outputScript library="js" name="materialize.min.js"/>
+<h:outputScript library="js" name="metisMenu.min.js"/>
+<h:outputScript library="js" name="custom.js"/>
+</h:head>
+<h:body class="blue-skin">
+<div id="main-wrapper">
+<ui:insert name="header" >
+    <ui:include src="freelancer_header.xhtml"/>
+</ui:insert>
+<!-- ============================ Page Title Start================================== -->
+<div class="page-title bg-cover" style="background:url(../../resources/assets/img/bn-2.jpg)no-repeat;" data-overlay="5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ============================ Page Title End ================================== -->
+<section class="gray-bg">
+    <div class="container">
+        <div class="row">
+            <!-- Item Wrap Start -->
+            <div class="col-lg-8 col-md-12 col-sm-12">
+                <div class="_job_detail_box">
+                    <div class="_wrap_box_slice">
+                        <div class="_job_detail_single">
+                            <h4>Owner </h4>
+                            <p>#{CDI.selectedcompany.companyOwnerName}</p>
+                        </div>
+                        <div class="_job_detail_single">
+                            <h4>Staff </h4>
+                            <p>#{CDI.selectedcompany.companyStaff}</p>
+                        </div>
+                        
+                        
+                    </div>
+                    <div class="_wrap_box_slice">
+                        <div class="_job_detail_single">
+                                <h4>Currently working freelancers</h4>
+                                <div class="row justify-content-center">
+                                
+                                <ui:repeat value="#{CDI.companyWiseOngoingFreelancer}" var="w">
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                            <div class="job_grid_02 shadow_0 border">
+                                                    <div class="jb_grid_01_thumb">
+                                                        <span class="img">
+                                                        <h:graphicImage library="images" name="#{w.profileImage}" class="img-fluid" />
+                                                        </span>
+                                                    </div>
+                                                <div>.</div>
+                                                    <div class="jb_grid_01_caption">
+                                                        <h4 class="_jb_title"><a href="">#{w.email}</a></h4>
+                                                        <div class="_emp_jb">#{CDI.selectedcompany.companyName}</div>
+                                                    </div>
+                                            </div>
+                                    </div>
+                                    </ui:repeat>                                
+                                </div>
+                        </div>
+                    </div>
+                    <h:form>
+                    <div class="_wrap_box_slice">
+                        <div class="_job_detail_single">
+                                <h4>Current Openings</h4>
+                                <div class="row justify-content-center">
+
+                                    
+                                    <ui:repeat value="#{CDI.workpostcmpp}" var="w" >
+                                     
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                            <div class="job_grid_02 shadow_0 border">
+                                                    <div class="jb_grid_01_thumb">
+                                                        <span class="img">
+                                                        <h:graphicImage name="#{w.companyID.companyLogo}" library="images" class="img-fluid" />
+                                                    </span>
+                                                    </div><div>.</div>
+                                                    <div class="jb_grid_01_caption">
+                                                        <h4 class="_jb_title"><a href="">#{w.workTitle}</a></h4>
+                                                        <div class="_emp_jb">#{w.companyID.companyName}</div>
+                                                    </div>
+                                                    <div class="jb_grid_01_footer">
+<!--                                                            <a href="job-detail-1.html" class="_jb_apply">View Job</a>-->
+                                                    <h:commandLink action="#{CDI.ViewWorkPostDetails()}" value="View" class="_jb_apply">
+                                                        <f:setPropertyActionListener value="#{w}" target="#{CDI.selectedWorkPost}"/>
+                                                        <f:param name="selectedId" value="#{w.workPostID}" />
+                                                    </h:commandLink>
+                                                    </div>
+                                            </div>
+                                    </div>
+                                     
+                                    </ui:repeat>
+                                    
+                                    
+                                </div>
+                        </div>
+                    </div>
+                        </h:form>
+                    <div class="_wrap_box_slice">
+                        <div class="_job_detail_single">
+                                <h4>Previous worked with</h4>
+                                <div class="row justify-content-center">
+
+                                    <!-- Single Item -->
+                                    <ui:repeat value="#{CDI.companyWiseCompletedFreelancer}" var="w">
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                            <div class="job_grid_02 shadow_0 border">
+                                                    <div class="jb_grid_01_thumb">
+                                                        <span class="img">
+                                                        <h:graphicImage library="images" name="#{w.profileImage}" class="img-fluid" />
+                                                        </span>
+                                                    </div>
+                                                <div>.</div>
+                                                    <div class="jb_grid_01_caption">
+                                                        <h4 class="_jb_title"><a href="">#{w.email}</a></h4>
+                                                        <div class="_emp_jb">#{CDI.selectedcompany.companyName}</div>
+                                                    </div>
+                                            </div>
+                                    </div>
+                                    </ui:repeat>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-12 col-sm-12">
+                <div class="_jb_summary light_box">
+                    
+                    <div class="_jb_summary_largethumb">
+                            
+                           <h:graphicImage library="img" class="img-fluid" name="avater.jpg" />
+                    </div>
+                    <div class="_jb_summary_thumb">
+                            <h:graphicImage library="images" class="img-fluid circle" name="#{CDI.selectedcompany.companyLogo}"/>
+                    </div>
+                    <div class="_jb_summary_caption">
+                        <h4>#{CDI.selectedcompany.companyName}</h4>
+                        <span>#{CDI.selectedcompany.companyOwnerName}</span>
+                    </div>
+                    <div class="_jb_summary_body">
+                        <div class="_view_dis_908">
+                            <ul class="exlio_list">
+                                <li>OnGoing Project<span class="text-success">#{CDI.OngoingPostFromFree()}</span></li>
+                                <li>Completed Project<span class="text-warning">#{CDI.CompeletedPostFromFree()}</span></li>
+                                <li>Current Openings<span class="text-info">#{CDI.CurrentPostFromFree()}</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            <div class="_jb_summary light_box p-4">
+                <h4>Company Info</h4>
+                <ul>
+                    <li>Contact no:<span>#{CDI.selectedcompany.contactNumber}</span></li>
+                    <li>E-mail<span>#{CDI.selectedcompany.companyEmail}</span></li>
+                    <li>Location:<span>#{CDI.selectedcompany.cityID.cityName},#{CDI.selectedcompany.stateID.stateName}</span></li>
+                </ul>
+            </div>
+            
+        </div>
+    </div>
+    </div>
+</section>  
+    
+    
+</div>
+
+    
+        
+</h:body>
+</html>
+

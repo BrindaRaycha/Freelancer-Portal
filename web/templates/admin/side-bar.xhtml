@@ -1,0 +1,304 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+              <div id="layout-sidenav" class="layout-sidenav sidenav sidenav-vertical bg-white logo-dark">
+               <div class="app-brand demo"><span class="app-brand-logo demo">
+                       <h:graphicImage library="img" name="logo.png" class="img-fluid"/>
+<!--                       <img src="assets/img/logo.png" alt="Brand Logo" class="img-fluid">-->
+                   </span><a href="index.html" class="app-brand-text demo sidenav-text font-weight-normal ml-2">Empire</a><a href="javascript:" class="layout-sidenav-toggle sidenav-link text-large ml-auto"><i class="ion ion-md-menu align-middle"></i></a></div>
+               <div class="sidenav-divider mt-0"></div>
+               <ul class="sidenav-inner py-1">
+                  
+                  
+                  
+                  <li class="sidenav-divider mb-1"></li>
+                  <li class="sidenav-header small font-weight-semibold">Locality</li>
+                  <li class="sidenav-item">
+                     <a href="javascript:" class="sidenav-link sidenav-toggle">
+                        <i class="sidenav-icon feather icon-map-pin"></i>
+                        <div>State</div>
+                     </a>
+                     <ul class="sidenav-menu">
+                        <li class="sidenav-item">
+                           <a href="state_add.jsf" class="sidenav-link">
+                              <div>Add State</div>
+                           </a>
+                        </li>
+                        <li class="sidenav-item">
+                           <a href="state_list.jsf" class="sidenav-link">
+                              <div>View State</div>
+                           </a>
+                        </li>
+                     </ul>
+                  </li>
+                  <li class="sidenav-item">
+                     <a href="javascript:" class="sidenav-link sidenav-toggle">
+                        <i class="sidenav-icon feather icon-pie-chart"></i>
+                        <div>City</div>
+                     </a>
+                     <ul class="sidenav-menu">
+                        <li class="sidenav-item">
+                           <a href="city_add.jsf" class="sidenav-link">
+                              <div>Add City</div>
+                           </a>
+                        </li>
+                        <li class="sidenav-item">
+                           <a href="city_list.jsf" class="sidenav-link">
+                              <div>View City</div>
+                           </a>
+                        </li>
+                     </ul>
+                  </li>
+                  <li class="sidenav-divider mb-1"></li>
+                  <li class="sidenav-header small font-weight-semibold">Users</li>
+                  <li class="sidenav-item">
+                     <a href="javascript:" class="sidenav-link sidenav-toggle">
+                        <i class="sidenav-icon feather icon-shield"></i>
+                        <div>Company</div>
+                     </a>
+                     <ul class="sidenav-menu">
+                        <li class="sidenav-item">
+                           <a href="company_list.jsf" class="sidenav-link">
+                              <div>Active Company</div>
+                           </a>
+                        </li>
+<!--                        <li class="sidenav-item">
+                           <a href="company_delete_account.jsf" class="sidenav-link">
+                              <div>Closed Company</div>
+                           </a>
+                        </li>-->
+                        <li class="sidenav-item">
+                           <a href="company_block_list.jsf" class="sidenav-link">
+                              <div>Blocked Company</div>
+                           </a>
+                        </li>
+                     </ul>
+                  </li>
+                  <li class="sidenav-item">
+                     <a href="javascript:" class="sidenav-link sidenav-toggle">
+                        <i class="sidenav-icon feather icon-users"></i>
+                        <div>Freelancers</div>
+                     </a>
+                     <ul class="sidenav-menu">
+                        <li class="sidenav-item">
+                           <a href="freelancer_list.jsf" class="sidenav-link">
+                              <div>Active Freelancers</div>
+                           </a>
+                        </li>
+<!--                        <li class="sidenav-item">
+                           <a href="tables_datatables.html" class="sidenav-link">
+                              <div>Unavailable Freelancers</div>
+                           </a>
+                        </li>-->
+                        <li class="sidenav-item">
+                           <a href="freelancer_block_list.jsf" class="sidenav-link">
+                              <div>Blocked Freelancers</div>
+                           </a>
+                        </li>
+                     </ul>
+                  </li>
+                  <li class="sidenav-divider mb-1"></li>
+                  <li class="sidenav-header small font-weight-semibold">Data</li>
+                  <li class="sidenav-item">
+                     <a href="javascript:" class="sidenav-link sidenav-toggle">
+                        <i class="sidenav-icon feather icon-grid"></i>
+                        <div>Category</div>
+                     </a>
+                     <ul class="sidenav-menu">
+                        <li class="sidenav-item active">
+                           <a href="category_add.jsf" class="sidenav-link">
+                              <div>Add Category</div>
+                           </a>
+                        </li>
+                        <li class="sidenav-item">
+                           <a href="category_list.jsf" class="sidenav-link">
+                              <div>View Category</div>
+                           </a>
+                        </li>
+                     </ul>
+                  </li>
+                  <li class="sidenav-item">
+                     <a href="javascript:" class="sidenav-link sidenav-toggle">
+                        <i class="sidenav-icon feather icon-pie-chart"></i>
+                        <div>Degree</div>
+                     </a>
+                     <ul class="sidenav-menu">
+                        <li class="sidenav-item">
+                           <a href="degree_add.jsf" class="sidenav-link">
+                              <div>Add Degree</div>
+                           </a>
+                        </li>
+                        <li class="sidenav-item">
+                           <a href="degree_list.jsf" class="sidenav-link">
+                              <div>View Degree</div>
+                           </a>
+                        </li>
+                     </ul>
+                  </li>
+                  <li class="sidenav-item">
+                     <a href="javascript:" class="sidenav-link sidenav-toggle">
+                        <i class="sidenav-icon feather icon-list"></i>
+                        <div>English Level</div>
+                     </a>
+                     <ul class="sidenav-menu">
+                        <li class="sidenav-item">
+                           <a href="english_level_add.jsf" class="sidenav-link">
+                              <div>Add English Level</div>
+                           </a>
+                        </li>
+                        <li class="sidenav-item">
+                           <a href="english_level_list.jsf" class="sidenav-link">
+                              <div>View English Level</div>
+                           </a>
+                        </li>
+                     </ul>
+                  </li>
+                  <li class="sidenav-item">
+                     <a href="javascript:" class="sidenav-link sidenav-toggle">
+                        <i class="sidenav-icon feather icon-list"></i>
+                        <div>Expertise Level</div>
+                     </a>
+                     <ul class="sidenav-menu">
+                        <li class="sidenav-item">
+                           <a href="expertize_level_add.jsf" class="sidenav-link">
+                              <div>Add Expertise Level</div>
+                           </a>
+                        </li>
+                        <li class="sidenav-item">
+                           <a href="expertize_level_list.jsf" class="sidenav-link">
+                              <div>View Expertise Level</div>
+                           </a>
+                        </li>
+                     </ul>
+                  </li>
+                  <li class="sidenav-item">
+                     <a href="javascript:" class="sidenav-link sidenav-toggle">
+                        <i class="sidenav-icon feather icon-list"></i>
+                        <div>Hourly Rate</div>
+                     </a>
+                     <ul class="sidenav-menu">
+                        <li class="sidenav-item">
+                           <a href="hourly_rate_add.jsf" class="sidenav-link">
+                              <div>Add Hourly Rate</div>
+                           </a>
+                        </li>
+                        <li class="sidenav-item">
+                           <a href="hourly_rate_list.jsf" class="sidenav-link">
+                              <div>View Hourly Rate</div>
+                           </a>
+                        </li>
+                     </ul>
+                  </li>
+                  <li class="sidenav-item">
+                     <a href="javascript:" class="sidenav-link sidenav-toggle">
+                        <i class="sidenav-icon feather icon-list"></i>
+                        <div>Project Scope</div>
+                     </a>
+                     <ul class="sidenav-menu">
+                        <li class="sidenav-item">
+                           <a href="add_project_scope.jsf" class="sidenav-link">
+                              <div>Add Project Scope</div>
+                           </a>
+                        </li>
+                        <li class="sidenav-item">
+                           <a href="project_scope.jsf" class="sidenav-link">
+                              <div>View Project Scope</div>
+                           </a>
+                        </li>
+                     </ul>
+                  </li>
+                  <li class="sidenav-item">
+                     <a href="javascript:" class="sidenav-link sidenav-toggle">
+                        <i class="sidenav-icon feather icon-layers"></i>
+                        <div>Skills</div>
+                     </a>
+                     <ul class="sidenav-menu">
+                        <li class="sidenav-item">
+                            <a href="skill_add.jsf" class="sidenav-link">
+                              <div>Add Skills</div>
+                           </a>
+                        </li>
+                        <li class="sidenav-item">
+                            <a href="skill_list.jsf" class="sidenav-link">
+                              <div>View Skills</div>
+                           </a>
+                        </li>
+                     </ul>
+                  </li>
+<!--                  <li class="sidenav-divider mb-1"></li>
+                    <li class="sidenav-header small font-weight-semibold">Other</li>
+                    <li class="sidenav-item">
+                        <a href="work_post_list.jsf" class="sidenav-link">
+                            <i class="sidenav-icon feather icon-camera"></i>
+                            <div>View Work Posts</div>
+                        </a>
+                    </li>
+                    <li class="sidenav-item">
+                        <a href="view_certificate.jsf" class="sidenav-link">
+                            <i class="sidenav-icon feather icon-download-cloud"></i>
+                            <div>View Certificates</div>
+                        </a>
+                    </li>
+                  
+                  -->
+                  
+<!--                  <li class="sidenav-divider mb-1"></li>
+                  <li class="sidenav-header small font-weight-semibold">Payment</li>
+                  <li class="sidenav-item">
+                     <a href="javascript:" class="sidenav-link sidenav-toggle">
+                        <i class="sidenav-icon feather icon-feather"></i>
+                        <div>Payment</div>
+                     </a>
+                     <ul class="sidenav-menu">
+                        <li class="sidenav-item">
+                           <a href="icons_feather.html" class="sidenav-link">
+                              <div>Add Method</div>
+                           </a>
+                        </li>
+                        <li class="sidenav-item">
+                           <a href="icons_font-awesome.html" class="sidenav-link">
+                              <div>View Method</div>
+                           </a>
+                        </li>
+                     </ul>
+                  </li>-->
+                  
+<!--                  <li class="sidenav-divider mb-1"></li>
+                  <li class="sidenav-header small font-weight-semibold">Reviews</li>-->
+<!--                  <li class="sidenav-item">
+                     <a href="javascript:" class="sidenav-link sidenav-toggle">
+                        <i class="sidenav-icon feather icon-feather"></i>
+                        <div>Company Reviews</div>
+                     </a>
+                     <ul class="sidenav-menu">
+                        <li class="sidenav-item">
+                           <a href="icons_feather.html" class="sidenav-link">
+                              <div>View Reviews</div>
+                           </a>
+                        </li>
+                     </ul>
+                  </li>-->
+<!--                  <li class="sidenav-item">
+                     <a href="javascript:" class="sidenav-link sidenav-toggle">
+                        <i class="sidenav-icon feather icon-phone-call"></i>
+                        <div>Freelancers Reviews</div>
+                     </a>
+                     <ul class="sidenav-menu">
+                        <li class="sidenav-item">
+                           <a href="view_free_reviews.jsf" class="sidenav-link">
+                              <div>View Reviews</div>
+                           </a>
+                        </li>
+                     </ul>
+                  </li>-->
+                  
+               </ul>
+            </div>
+    </h:body>
+</html>
+

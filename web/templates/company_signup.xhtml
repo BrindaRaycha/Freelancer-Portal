@@ -1,0 +1,178 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"     
+      xmlns:p = "http://primefaces.org/ui"
+      xmlns:f ="http://java.sun.com/jsf/core"
+      >
+    <h:head><h:outputStylesheet library="css" name="plugins.css"/>
+        <h:outputStylesheet library="css" name="styles.css"/>
+        
+        <h:outputScript library="js" name="jquery.min.js"/>
+        <h:outputScript library="js" name="popper.min.js"/>
+        <h:outputScript library="js" name="bootstrap.min.js"/>
+        <h:outputScript library="js" name="select2.min.js"/>
+        <h:outputScript library="js" name="owl.carousel.min.js"/>
+        <h:outputScript library="js" name="ion.rangeSlider.min.js"/>
+        <h:outputScript library="js" name="counterup.min.js"/>
+        <h:outputScript library="js" name="materialize.min.js"/>
+        <h:outputScript library="js" name="metisMenu.min.js"/>
+        <h:outputScript library="js" name="custom.js"/>
+        <title>Company Sign up </title>
+        
+    </h:head>
+<h:body class="blue-skin">
+<div id="main-wrapper">
+<!-- ============================ Page Title Start================================== -->
+    <div class="page-title inner-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <h2 class="ipt-title">Sign Up</h2>
+                    <span class="ipn-subtitle">Looking For a Freelancers? You'll Found.</span>
+                </div>
+            </div>
+        </div>
+        <div class="ht-80"></div>
+    </div>
+    <!-- ============================ Page Title End ================================== -->
+    <section class="pt-0">
+        <div class="container overlio-top">
+            <div class="row">
+                <div class="col-lg-2 col-md-2 col-sm-12">
+                    
+                </div><!--
+                 Item Wrap Start -->
+                <div class="col-lg-8 col-md-8 col-sm-12">
+                    <h:form id="Form" styleClass="contact_row" enctype="multipart/form-data" > 
+<!--                    <form class="contact_row">-->
+                    <div class="form_row_box">
+                        <div class="form_row_header">
+                            <div class="form_row_header_flex"><h:graphicImage library="img" name="email.svg" height="40" width="40" class="img-fluid"/></div>
+                            <div class="form_row_header_right">
+                                <p>Register your company here....</p>
+                            </div>
+                        </div>
+                        <div class="form_row_box_body">
+                            <div class="form-row">
+                                <div class="col-lg-6 col-md-12">
+                                    <div class="form-group">
+                                        <label>Company Name</label>
+                                        <h:inputText id="CompanyName" value="#{SignUpBean.companyName}" styleClass="form-control with-light" required="true" requiredMessage="Company name can't be blank" />
+<!--                                            <input type="text" class="form-control with-light" placeholder="Your Name" />-->
+                                         <h:message for="CompanyName" styleClass="text text-danger" />
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-12">
+                                    <div class="form-group">
+                                        <label>Owner Name</label>
+                                        <h:inputText id="OwnerName" value="#{SignUpBean.companyOwnerName}" styleClass="form-control with-light" required="true" requiredMessage="Owner name can't be blank" />
+                                        <h:message for="OwnerName" styleClass="text text-danger" />
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-12">
+                                    <div class="form-group">
+                                        <label>e-Mail</label>
+                                        <h:inputText id="Email" value="#{SignUpBean.companyEmail}" styleClass="form-control with-light" required="true" requiredMessage="e-mail can't be blank" />
+                                        <h:message for="Email" styleClass="text text-danger" />
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-12">
+                                    <div class="form-group">
+                                        <label>Contact no:</label>
+                                        <h:inputText id="Contact" value="#{SignUpBean.companyContact}" styleClass="form-control with-light" required="true" requiredMessage="Contact no can't be blank" />
+                                        <h:message for="Contact" styleClass="text text-danger" />
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-12">
+                                    <div class="form-group">
+                                        <label>Password</label>
+                                        <h:inputText id="password" value="#{SignUpBean.companyPassword}" styleClass="form-control with-light" required="true" requiredMessage="Password can't be blank" />
+                                        <h:message for="password" styleClass="text text-danger" />
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-12">
+                                    <div class="form-group">
+                                        <label>Confirm Password</label>
+
+                                      
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-12">
+                                    <div class="form-group">
+                                        <label>State</label>
+                                        <h:selectOneMenu class="form-control with-light" id="selectState" value="#{SignUpBean.stateID}" required="true" requiredMessage="Select Any State...!!!">
+                                            
+                                            <f:selectItem itemLabel="--select state--" itemValue="" noSelectionOption="true"/>
+                                            <f:selectItems noSelectionValue="true" value="#{SignUpBean.states}" var="s" itemValue="#{s.stateID}" itemLabel="#{s.stateName}" />
+                                            <f:ajax event="change" listener="#{SignUpBean.onStateChange(SignUpBean.stateID)}" render="selectCity"/>
+                                         </h:selectOneMenu>
+                                        
+                                        <h:message for="selectState" styleClass="text text-danger" />
+                                    </div>
+                                </div>
+                                
+                                <div class="col-lg-6 col-md-12">
+                                    <div class="form-group">
+                                        <label>City</label>
+                                        <h:selectOneMenu class="form-control with-light" id="selectCity" value="#{SignUpBean.cityID}">
+                                            <f:selectItem itemLabel="select city" itemValue="" noSelectionOption="true"/>
+                                            <f:selectItems noSelectionValue="true" value="#{SignUpBean.onStateChange(SignUpBean.stateID)}" var="c" itemValue="#{c.cityID}" itemLabel="#{c.cityName}" />
+                                        </h:selectOneMenu>
+                                        <!--<h:message for="selectCity" styleClass="text text-danger" />-->
+                                    </div>
+                                </div>
+                                
+                                <div class="col-lg-12 col-md-12">
+                                    <div class="form-group">
+                                        <label>Company Staff</label>
+                                        <h:inputText id="companyStaff" value="#{SignUpBean.companyStaff}" styleClass="form-control with-light" required="true" requiredMessage="Company Staff can't be blank" />
+                                        <h:message for="companyStaff" styleClass="text text-danger" />
+                                    </div>
+                                </div>                                
+                                <div class="col-lg-12 col-md-12">
+                                    <div class="form-group">
+                                        <div class="custom-file">
+                                            <h:outputLabel value="Upload file" class="custom-file-label" for="upfile"></h:outputLabel>
+                                            <h:inputFile value="#{SignUpBean.uploadedFile}" class="custom-file-input" id="upfile" required="true" requiredMessage="Image can't be blank"  />
+                                            
+                                            <!--                                            <input type="file" class="custom-file-input" id="upfile" />
+                                            <label class="custom-file-label" for="upfile">Upload file</label>-->
+                                        </div>
+                                        <h:message for="upfile" styleClass="text text-danger" />
+                                    </div>
+                                </div>         
+                                
+                                <div class="col-lg-12 col-md-12">
+                                    <div class="form-group">
+<!--                                        <button type="button" class="btn dark-3">Sign Up</button>-->
+<h:commandButton value="Sign Up" styleClass="btn dark-3" action="#{SignUpBean.AddCompany(SignUpBean)}" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </h:form>
+<!--                   </form>-->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ============================ Main Section End ================================== -->
+			
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        </div> 
+    </h:body>
+</html>
+

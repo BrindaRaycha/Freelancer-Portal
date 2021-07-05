@@ -1,0 +1,165 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Company Profile</title>
+    </h:head>
+    <h:body>
+       <div class="layout-wrapper layout-2">
+        <div class="layout-inner">
+            <!-- [ Layout sidenav ] Start -->
+            <ui:insert name="side-bar">
+                <ui:include src="side-bar.xhtml"/>
+            </ui:insert>
+            <!-- [ Layout sidenav ] End -->
+            <!-- [ Layout container ] Start -->
+            <div class="layout-container">
+                <!-- [ Layout navbar ( Header ) ] Start -->
+                <ui:insert name="header">
+                    <ui:include src="header.xhtml"/>
+                </ui:insert>
+                <!-- [ Layout navbar ( Header ) ] End -->
+                <!-- [ Layout content ] Start -->
+                <div class="layout-content">
+
+                <div class="container-fluid flex-grow-1 container-p-y">
+                <h4 class="font-weight-bold py-3 mb-0">Company Profile</h4>
+                <div class="text-muted small mt-0 mb-4 d-block breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.jsf"><i class="feather icon-home"></i></a></li>
+                <li class="breadcrumb-item">Company List</li>
+                <li class="breadcrumb-item active">Company Profile</li>
+                </ol>
+                </div>
+                <div class="media align-items-center py-3 mb-3">
+                    <h:graphicImage library="images" name="#{CDI.selectedcompany.companyLogo}" class="d-block ui-w-100 rounded-circle"/>
+                <!--<img src="assets/img/avatars/5-small.png" alt="" class="d-block ui-w-100 rounded-circle">-->
+                <div class="media-body ml-4">
+                    <h4 class="font-weight-bold mb-0">#{CDI.selectedcompany.companyName}</h4>
+                    <div class="text-muted mb-2">#{CDI.selectedcompany.companyEmail}</div>
+<!--                <a href="javascript:void(0)" class="btn btn-primary btn-sm">Edit</a>&nbsp;
+                <a href="javascript:void(0)" class="btn btn-default btn-sm">Profile</a>&nbsp;
+                <a href="javascript:void(0)" class="btn btn-default btn-sm icon-btn">
+                <i class="ion ion-md-mail"></i>
+                </a>-->
+                </div>
+                </div>
+
+                <div class="card">
+
+                <div class="card-body">
+                <div class="table-responsive">
+                <table class="table user-view-table m-0">
+                <tbody>
+                <tr>
+                <td>Company : </td>
+                <td>#{CDI.selectedcompany.companyName}</td>
+                </tr>
+                <tr>
+                <td>Email : </td>
+                <td>#{CDI.selectedcompany.companyEmail}</td>
+                </tr>
+                <tr>
+                <td>Owner Name : </td>
+                <td>#{CDI.selectedcompany.companyOwnerName}</td>
+                </tr>
+                <tr>
+                <td>Owner Name : </td>
+                <td>
+                    <c:if test="#{CDI.selectedcompany.isActive == 0}">
+                        <span class="badge badge-outline-danger">Not Active</span>
+                        
+                    </c:if>
+                    <c:if test="#{CDI.selectedcompany.isActive == 1}">
+                        <span class="badge badge-outline-success">Active</span>
+                    </c:if>
+                </td>
+                </tr>
+                </tbody>
+                </table>
+                </div>
+<!--                <h6 class="mt-4 mb-3">Social links</h6>-->
+                <div class="table-responsive">
+
+                </div>
+                <h6 class="mt-4 mb-3">Personal info</h6>
+                <div class="table-responsive">
+                <table class="table user-view-table m-0">
+                 <tbody>
+                <tr>
+                <td>Staff : </td>
+                <td>#{CDI.selectedcompany.companyStaff}</td>
+                </tr>
+                <tr>
+                <td>State : </td>
+                <td>#{CDI.selectedcompany.stateID.stateName}</td>
+                </tr>
+                <tr>
+                <td>City : </td>
+                <td>#{CDI.selectedcompany.cityID.cityName}</td>
+                </tr>
+                </tbody>
+                </table>
+                </div>
+                <h6 class="mt-4 mb-3">Contacts</h6>
+                <div class="table-responsive">
+                <table class="table user-view-table m-0">
+                <tbody>
+                <tr>
+                <td>Phone:</td>
+                <td>#{CDI.selectedcompany.contactNumber}</td>
+                </tr>
+                </tbody>
+                </table>
+                </div>
+                
+                
+                </div>
+                    
+                </div>
+                
+                </div>
+                    
+                    <div class="row">
+                    <ui:repeat value="#{CDI.compWorkPost}" var="w" >
+                            <div class="col-md-6 col-xl-4">
+                                <div class="card bg-dark border-0 text-white">
+                                    <h:graphicImage library="img" name="2.jpg" class="card-img-top" style="opacity: 0.1;" />
+                                    <!--<img class="card-img-top" src="assets/img/bg/5.jpg" alt="Card image cap">-->
+                                    <div class="card-img-overlay">
+                                        <h4 class="card-title text-facebook">#{w.workTitle}</h4>
+                                        <p class="card-text">#{w.workDescription}</p>
+                                        <div class="card-text">#{w.projectScopeID.scope}</div>
+                                        <div class="card-text">#{w.hourlyRateID.rate}</div>
+                                        <div class="card-text">#{w.englishLevelID.englishLevels}</div>
+                                        
+                                        <p class="card-text">
+                                            
+                                            <small class="text-black">#{w.workPostDate}</small>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            </ui:repeat>
+                            
+                        </div>
+
+
+                 <ui:insert name="footer">
+                    <ui:include src="footer.xhtml"/>
+                </ui:insert>
+
+                </div>
+                <!-- [ Layout content ] Start -->
+            </div>
+            <!-- [ Layout container ] End -->
+        </div>
+        <!-- Overlay -->
+        <div class="layout-overlay layout-sidenav-toggle"></div>
+    </div>
+    </h:body>
+</html>
+

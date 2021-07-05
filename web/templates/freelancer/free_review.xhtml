@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html" 
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>Freelancer's Review</title>
+    
+</h:head>
+<h:body class="blue-skin">
+<div id="main-wrapper">
+    <ui:insert name="header" >
+        <ui:include src="freelancer_header.xhtml"/>
+    </ui:insert>
+    <div class="clearfix"></div>
+    <ui:insert name="sidebar" >
+        <ui:include src="freelancer_dashboard_header.xhtml"/>
+    </ui:insert>
+    <section class="gray-bg pt-4">
+				<div class="container-fluid">
+					<div class="row m-0">
+						
+					<ui:insert name="sidebar" >
+                                            <ui:include src="freelancer_dashboard_sidebar.xhtml"/>
+                                        </ui:insert>	
+						
+						<!-- Item Wrap Start -->
+						<div class="col-xl-9 col-lg-8 col-md-12 col-sm-12">
+							<div class="row">
+								<div class="col-lg-12 col-md-12 col-sm-12">
+									<!-- Breadcrumbs -->
+									<div class="bredcrumb_wrap">
+										<nav aria-label="breadcrumb">
+										  <ol class="breadcrumb">
+											<li class="breadcrumb-item"><a href="index.jsf">Home</a></li>
+                                                                                        <li class="breadcrumb-item"><a href="freelancer_dashboard.jsf">Dashboard</a></li>
+											<li class="breadcrumb-item active" aria-current="page">Review</li>
+										  </ol>
+										</nav>	
+									</div>
+								</div>
+							</div>
+							
+							<div class="row">
+								<div class="col-lg-12 col-md-12 col-sm-12">
+									
+									<!-- Single Wrap -->
+									<div class="_dashboard_content">
+										<div class="_dashboard_content_header">
+											<div class="_dashboard__header_flex">
+												<h4><i class="ti-briefcase mr-1"></i>Reviews</h4>	
+											</div>
+										</div>
+										
+										<div class="_dashboard_content_body p-0">
+											<div class="_dashboard_list_group">
+                                                                                            	<!-- Single List jobs -->
+                                                                                                <ui:repeat value="#{CDI.reviewTBss}" var="w">
+                                                                                                    <div class="_grouping_single_reviews">
+													<div class="_grouping_single_reviews_thumb">
+                                                                                                            <h:graphicImage library="images" class="d-block ui-w-100 rounded-circle" height="50" width="50" name="#{w.companyID.companyLogo}"/>
+													</div>
+													<div class="_grouping_single_reviews_caption">
+                                                                                                            <h4 class="_rev_title_cats">#{w.companyID.companyName}</h4>
+                                                                                                            <h6 class="_rev_subject_cats">#{w.review}</h6>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </ui:repeat>
+                                                                                        </div>
+                                                                                </div>
+									</div>
+									<!-- Single Wrap End -->
+									
+									
+								</div>
+							</div>
+							
+						</div>
+						
+					</div>
+				</div>
+			</section>
+		<ui:insert name="footer" >
+                           <ui:include src="freelancer_footer.xhtml"/>
+                        </ui:insert> 
+</div>  
+    </h:body>
+</html>
+

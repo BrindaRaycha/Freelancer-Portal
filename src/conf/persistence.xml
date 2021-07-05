@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="FreelancerPU" transaction-type="JTA">
+    <jta-data-source>jdbc/FreelancerJNDI</jta-data-source>
+    <class>Entity.HourlyRateTB</class>
+    <class>Entity.ProjectScopeTB</class>
+    <class>Entity.StateTB</class>
+    <class>Entity.CompanyTB</class>
+    <class>Entity.ExpertizeLevelTB</class>
+    <class>Entity.DegreeTB</class>
+    <class>Entity.CertificateTB</class>
+    <class>Entity.CategoryTB</class>
+    <class>Entity.CityTB</class>
+    <class>Entity.CompanyCloseTB</class>
+    <class>Entity.WorkPostTB</class>
+    <class>Entity.ReviewTB</class>
+    <class>Entity.RoleTB</class>
+    <class>Entity.EnglsihLevelTB</class>
+    <class>Entity.AdminTB</class>
+    <class>Entity.LoginTB</class>
+    <class>Entity.SkillTB</class>
+    <class>Entity.FreelancerTB</class>
+    <class>Entity.PaymentTB</class>
+    <class>Entity.ApplyTB</class>
+    <class>Entity.WorkingFreelancerTB</class>
+    <class>Entity.CompanyReviewTB</class>
+    <class>Entity.BiddingTB</class>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <properties/>
+  </persistence-unit>
+</persistence>

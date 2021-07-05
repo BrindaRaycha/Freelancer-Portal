@@ -1,0 +1,150 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+<h:head>
+    <title>Freelancer List</title>
+    <h:outputStylesheet library="css" name="plugins.css"/>
+    <h:outputStylesheet library="css" name="styles.css"/>
+
+    <h:outputScript library="js" name="jquery.min.js"/>
+    <h:outputScript library="js" name="popper.min.js"/>
+    <h:outputScript library="js" name="bootstrap.min.js"/>
+    <h:outputScript library="js" name="select2.min.js"/>
+    <h:outputScript library="js" name="owl.carousel.min.js"/>
+    <h:outputScript library="js" name="ion.rangeSlider.min.js"/>
+    <h:outputScript library="js" name="counterup.min.js"/>
+    <h:outputScript library="js" name="materialize.min.js"/>
+    <h:outputScript library="js" name="metisMenu.min.js"/>
+    <h:outputScript library="js" name="custom.js"/>
+</h:head>
+<h:body class="blue-skin">
+<div id="main-wrapper">
+<ui:insert name="header" >
+    <ui:include src="header.xhtml"/>
+</ui:insert>
+    <div class="clearfix"></div>
+    <div class="page-title">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <h2 class="ipt-title">Search Freelancers</h2>
+                    <span class="ipn-subtitle">Browse All Freelancers</span>
+                </div>
+            </div>
+        </div>
+    </div>  
+<section class="gray-bg">
+    <div class="container">
+        <div class="row">
+            
+
+            <!-- Item Wrap Start -->
+            <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                            <!-- Filter Search -->
+                            <div class="_filt_tag786">
+                                    <div class="_tag782">
+                                        <div class="_tag780">#{CDI.GetTotalFreelancers()} Items found</div>
+                                    </div>
+                                    <div class="_tag785">
+                                            
+                                            <h:form>
+                                            <div class="">
+                                                <h:inputText id="freeEmail" value="#{CDI.email}" class="form-control"  required="true" requiredMessage="Title can;t be blank"/>
+                                                <h:commandLink value="Check" action="#{CDI.SearchByFreeEmail(CDI)}" styleClass="_edit_list_point">
+                                                            <i class="fa fa-search"></i>
+
+                                                </h:commandLink>
+                                                
+                                                            <!--<input type="text" class="form-control" placeholder="Location, Zip.."/>-->
+
+                                            </div>
+                                            </h:form>									
+                                    </div>
+                            </div>
+                    </div>
+            </div>
+                 <h:form>
+            <div class="row">
+
+                    <!-- Single Item -->
+                    <c:if test="#{CDI.searchByFreeName != null}">
+                    <ui:repeat value="#{CDI.searchByFreeName}" var="f">
+                       
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="_freelacers_120 shadow_0">
+                            <div class="_freelancers_rate">#{f.hourlyRateID.rate}</div>
+                            <div class="_freelacers_120_thumb">
+                                
+                                <h:graphicImage library="img" name="verify.svg" class="verified" width="15"/>
+                                <h:graphicImage library="images" name="#{f.profileImage}" class="circle" height="100" width="100"/>
+                            </div>
+                            <div class="_freelacers_120_caption">
+                                <span class="_freel_spec theme-cl">#{f.email}</span>
+                                <h4><a href="">#{f.degreeID.degree}</a></h4>
+                                <div class="_freelan_laft"><i class="ti-location-pin mr-1"></i>#{f.cityID.cityName} #{f.stateID.stateName}</div>
+                                <div class="_freelan_right"><strong><i class="fa fa-star mr-1"></i>4.5</strong></div>
+                                
+                                <h:commandLink action="#{CDI.ViewFreelancerDetails()}" value="view" styleClass="btn btn-info btn-sm">
+                                    <f:setPropertyActionListener value="#{f}" target="#{CDI.selectedfreelancer}"/>
+                                    <f:param name="selectedId" value="#{f.freelancerID}" />
+                                </h:commandLink>
+                               
+                            </div>
+                        </div>
+                    </div>
+                           
+                    </ui:repeat>
+                        </c:if>
+                    <h:panelGroup rendered="#{empty CDI.searchByFreeName}">
+                    <ui:repeat value="#{CDI.freelancers}" var="f">
+                       
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="_freelacers_120 shadow_0">
+                            <div class="_freelancers_rate">#{f.hourlyRateID.rate}</div>
+                            <div class="_freelacers_120_thumb">
+                                
+                                <h:graphicImage library="img" name="verify.svg" class="verified" width="15"/>
+                                <h:graphicImage library="images" name="#{f.profileImage}" class="circle" height="100" width="100"/>
+                            </div>
+                            <div class="_freelacers_120_caption">
+                                <span class="_freel_spec theme-cl">#{f.email}</span>
+                                <h4><a href="">#{f.degreeID.degree}</a></h4>
+                                <div class="_freelan_laft"><i class="ti-location-pin mr-1"></i>#{f.cityID.cityName} #{f.stateID.stateName}</div>
+                                <div class="_freelan_right"><strong><i class="fa fa-star mr-1"></i>4.5</strong></div>
+                                
+                                <h:commandLink action="#{CDI.ViewFreelancerDetails()}" value="view" styleClass="btn btn-info btn-sm">
+                                    <f:setPropertyActionListener value="#{f}" target="#{CDI.selectedfreelancer}"/>
+                                    <f:param name="selectedId" value="#{f.freelancerID}" />
+                                </h:commandLink>
+                               
+                            </div>
+                        </div>
+                    </div>
+                           
+                    </ui:repeat>
+                        </h:panelGroup>
+
+                    <!-- Single Item -->
+                    
+
+                    <!-- Single Item -->
+                    
+
+            </div>
+ </h:form>
+            
+
+    </div>
+        </div>
+    </div>
+</section>
+</div>
+</h:body>
+</html>
+

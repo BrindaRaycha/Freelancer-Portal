@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <h:outputStylesheet library="css" name="plugins.css"/>
+    <h:outputStylesheet library="css" name="styles.css"/>
+
+    <h:outputScript library="js" name="jquery.min.js"/>
+    <h:outputScript library="js" name="popper.min.js"/>
+    <h:outputScript library="js" name="bootstrap.min.js"/>
+    <h:outputScript library="js" name="select2.min.js"/>
+    <h:outputScript library="js" name="owl.carousel.min.js"/>
+    <h:outputScript library="js" name="ion.rangeSlider.min.js"/>
+    <h:outputScript library="js" name="counterup.min.js"/>
+    <h:outputScript library="js" name="materialize.min.js"/>
+    <h:outputScript library="js" name="metisMenu.min.js"/>
+    <h:outputScript library="js" name="custom.js"/>
+    </h:head>
+    <h:body>
+        <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12">
+            <div class="dashboard-navbar overlio-top">
+
+                    <div class="d-user-avater">
+                            <!--<img src="assets/img/team-1.jpg" class="img-fluid rounded" alt="" />-->
+                            <h:graphicImage library="images" class="img-fluid rounded" name="#{CDI.GetFreelancerData().profileImage}" />
+                            <h4>#{CDI.GetFreelancerData().email}</h4>
+                            
+                    </div>
+
+                    <div class="d-navigation">
+                        <h:form>
+                            <ul id="metismenu">
+                                    <li><a href="freelancer_dashboard.jsf"><i class="ti-dashboard"></i>Dashboard</a></li>
+                                    <li>
+
+                                        <a href="freelancer_profile.jsf"><i class="ti-user"></i>My Profile</a>
+                                    </li>
+                                    
+                                    <li><a href="free_review.jsf"><i class="fa fa-star"></i>Reviews</a></li>
+                                    
+                                    <li><a href="free_completed.jsf"><i class="fa fa-briefcase"></i>Work Experience</a></li>
+                                     <li><a href="free_skill_list.jsf"><i class="ti-check-box"></i>My Skills</a></li>
+                                    <li><a href="free_certi_list.jsf"><i class="ti-download"></i>My Certificates</a></li>   
+                                    <li>
+                                        <h:commandLink action="#{loginBean.logout()}" >
+                                            <i class="ti-power-off"></i>Log Out
+                                        </h:commandLink>
+                                        <!--<a href=""><i class="ti-power-off"></i>Log Out</a>-->
+                                    </li>
+                            </ul>
+                            </h:form>
+                    </div>
+
+            </div>
+    </div>
+    </h:body>
+</html>
+
